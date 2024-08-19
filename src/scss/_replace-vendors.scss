@@ -1,0 +1,679 @@
+@import 'variables';
+
+// Arquivo para sobrescrita de libs de terceiros (Ex: Bootstrap, Material)
+
+html {
+  &.cdk-global-scrollblock {
+    position: initial !important;
+
+    body {
+      position: fixed;
+      width: 100%;
+    }
+  }
+}
+
+body {
+  @media screen and (max-width: 1199px) {
+    .container {
+      max-width: initial;
+    }
+  }
+
+  @media screen and (min-width: 1500px) {
+    .container {
+      max-width: 1800px;
+
+      &.reduzir-container {
+        max-width: 1400px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1366px) {
+    .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane.owl-dt-popup {
+      margin-top: 5%;
+    }
+  }
+  // ----------------------- Sobrescrita Angular Material ----------------------- /
+  .mat-form-field-appearance-standard {
+    .mat-form-field-flex {
+      padding-top: 0;
+      font-family: BancoDoBrasilTitulos, monospace !important;
+    }
+  }
+
+  .mat-option-text {
+    display: flex !important;
+  }
+
+  .mat-autocomplete-panel {
+    box-shadow: none;
+  }
+
+  .mat-select-search-input {
+    &.mat-input-element {
+      font-family: BancoDoBrasilTextos, monospace;
+
+      &.mat-form-field-autofill-control {
+        font-family: BancoDoBrasilTitulos, monospace !important;
+      }
+    }
+  }
+
+  mat-option {
+    &.mat-option {
+      font-family: BancoDoBrasilTitulos, monospace !important;
+    }
+  }
+
+  .mat-row {
+    &:hover {
+      background-color: $bkg-color;
+    }
+  }
+
+  .mat-table {
+    font-family: BancoDoBrasilTitulos, monospace !important;
+  }
+
+  .publicar-como-noticia {
+    .mat-form-field {
+      .mat-select {
+        width: 356px;
+        margin-top: 8px;
+        padding: 5px;
+        border: 1px $mercurio solid;
+        border-radius: 5px;
+      }
+
+      .mat-select-arrow-wrapper {
+        .mat-select-arrow {
+          margin-left: 200px;
+          color: $cinza-mid;
+        }
+      }
+    }
+  }
+
+  .mat-select-arrow-wrapper {
+    .mat-select-arrow {
+      color: $cinza-mid;
+    }
+  }
+
+  .mat-select-panel {
+    max-width: 100%;
+
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0.25rem;
+      background-color: $cinza-calice;
+    }
+
+    .mat-option {
+      &.mat-selected {
+        &:not(.mat-option-multiple) {
+          background-color: $cinza-super-claro;
+        }
+
+        &:not(.mat-option-diabled) {
+          color: $azul;
+        }
+      }
+    }
+  }
+
+  .mat-select-value-text {
+    @include font-size-px-to-rem(14px);
+    color: $cinza-mid;
+  }
+
+  .mat-form-field {
+    width: 100%;
+
+    .mat-form-field-infix {
+      padding: 0;
+      border: 0;
+    }
+
+    .mat-form-field-underline {
+      display: none;
+    }
+  }
+
+  .mat-select-disabled,
+  .mat-select-disabled:focus,
+  .mat-select-disabled:hover {
+    background-color: $form-disabled;
+    opacity: 1;
+  }
+
+  .mat-card {
+    font-family: BancoDoBrasilTextos, monospace !important;
+  }
+
+  .mat-slide-toggle {
+    &.mat-checked {
+      .mat-slide-toggle-thumb {
+        background-color: $azul-escuro;
+      }
+
+      .mat-slide-toggle-bar {
+        background-color: $azul-escuro-opacity;
+      }
+    }
+
+    .mat-slide-toggle-content {
+      font-family: BancoDoBrasilTitulos, monospace;
+    }
+  }
+
+  app-gestao-tokens-ai-intra {
+    .mat-slide-toggle-thumb-container {
+      top: 2px;
+      left: 2px;
+    }
+
+    .mat-slide-toggle {
+      .mat-slide-toggle-bar {
+        position: relative;
+        flex-shrink: 0;
+        width: 42px;
+        height: 24px;
+        border-radius: 16px;
+      }
+
+      .mat-slide-toggle-thumb {
+        @include altura-igual-largura(20px);
+      }
+
+      &.mat-checked {
+        .mat-slide-toggle-thumb-container {
+          top: 2px;
+          left: 4px;
+        }
+
+        .mat-slide-toggle-thumb {
+          @include altura-igual-largura(20px);
+          background-color: $branco-gelado;
+        }
+
+        .mat-slide-toggle-bar {
+          background-color: $azul-eletrico;
+        }
+      }
+    }
+  }
+
+  app-meu-trabalho .mat-slide-toggle {
+    &.mat-checked {
+      .mat-slide-toggle-bar {
+        background-color: $verde-glacier;
+      }
+
+      .mat-slide-toggle-thumb {
+        background-color: $azul-horizonte;
+      }
+    }
+  }
+
+  .mat-form-field-label-wrapper {
+    display: none;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-form-field-hide-placeholder {
+    .mat-select-placeholder {
+      -webkit-text-fill-color: $cinza-claro;
+    }
+  }
+
+  app-meus-interesses .mat-slide-toggle {
+    &.mat-checked {
+      .mat-slide-toggle-bar {
+        background-color: $roxo-logan;
+      }
+
+      .mat-slide-toggle-thumb {
+        background-color: $roxo-ametista;
+      }
+    }
+  }
+
+  app-login {
+    .mat-form-field {
+      .mat-form-field-infix {
+        padding: 16px 0;
+      }
+    }
+
+    .mat-form-field-appearance-outline {
+      .mat-form-field-outline {
+        border-radius: 5px;
+        background-color: $cinza-super-escuro;
+        opacity: 0.05 !important;
+      }
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+  }
+
+  .gerenciar-assunto-card {
+    .mat-list-item-content {
+      padding: 0.5rem 0 !important;
+      border-bottom: 1px solid $cinza-conteudo-home;
+      cursor: pointer;
+    }
+
+    &.mapa-assunto {
+      .gestor-select {
+        .mat-form-field-wrapper {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  .aba-body,
+  app-publicador-artigo-dialog {
+    .mat-input-element {
+      box-sizing: border-box;
+      padding: 0.375rem 0.75rem;
+      border: 1px solid $btn-close-custom;
+    }
+  }
+
+  .aba-body,
+  app-filtro-pesquisa-video {
+    .mat-form-field-appearance-legacy {
+      .mat-form-field-wrapper {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  app-filtro-pesquisa-video {
+    .mat-divider {
+      margin: 0 0.5rem 0 0.068rem;
+    }
+
+    .mat-select-value {
+      color: $cinza-input-assunto;
+      font-family: BancoDoBrasilTitulos-book, monospace;
+    }
+
+    .mat-autocomplete-panel {
+      &.mat-autocomplete-visible {
+        box-shadow: 0 2px 4px -1px $cinza-super-claro, 0 4px 5px 0 $cinza-bkg-guia, 0 1px 10px 0 $preto-sombreado;
+      }
+    }
+  }
+
+  app-gerenciar-noticia {
+    .mat-select-value {
+      color: $azul;
+    }
+  }
+
+  .arvore {
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+  }
+
+  app-detalhar-noticia {
+    .mat-card-header-text {
+      margin: 0 -6px 1rem;
+    }
+  }
+
+  app-pre-visualizar,
+  app-detalhar-documento-corporativo {
+    .mat-card-header-text {
+      margin-left: 0;
+    }
+  }
+
+  app-details-side-bar {
+    .mat-card-header-text {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  mat-card-header {
+    .mat-card-header-text {
+      margin: 0;
+    }
+  }
+
+  .publicacao-feed {
+    .mat-card-header-text {
+      margin: 0 8px;
+    }
+  }
+
+  .form-comentario {
+    .mat-radio-button {
+      @include opacity-default();
+      margin-bottom: 4px;
+      margin-left: 1em;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:hover {
+        label {
+          color: $azul-pruciano !important;
+        }
+      }
+
+      label {
+        color: $azul-endeavour !important;
+        transition: color 0.5s ease;
+      }
+
+      &.mat-primary {
+        &.mat-radio-checked {
+          label {
+            color: $azul-pruciano !important;
+          }
+
+          .mat-radio-outer-circle {
+            border-color: $azul-pruciano;
+          }
+
+          .mat-radio-inner-circle {
+            background-color: $azul-pruciano;
+          }
+        }
+      }
+    }
+  }
+
+  .mat-progress-spinner,
+  .mat-spinner {
+    &.spinner-aplicativo {
+      circle {
+        stroke: $branco;
+      }
+    }
+
+    circle {
+      stroke: $azul-escuro;
+    }
+  }
+
+  .mat-checkbox-checked,
+  .mat-checkbox-indeterminate {
+    &.mat-accent {
+      .mat-checkbox-background {
+        background-color: $azul;
+      }
+    }
+  }
+
+  .mat-accent {
+    .mat-slider-track-fill,
+    .mat-slider-thumb,
+    .mat-slider-thumb-label {
+      background-color: $azul-pruciano;
+    }
+  }
+
+  .mat-slider-horizontal {
+    .mat-slider-ticks {
+      background-image: repeating-linear-gradient(to right, $cinza-calice, $cinza-calice 2px, transparent 0, transparent);
+    }
+
+    &.mat-slider-min-value {
+      .mat-slider-ticks {
+        background-image: repeating-linear-gradient(to right, $azul-pruciano, $azul-pruciano 2px, transparent 0, transparent);
+      }
+    }
+  }
+
+  app-publicador-matricial {
+    .form-publicador {
+      .mat-select-value-text {
+        color: $cinza-mid;
+      }
+
+      article {
+        .conhecimentos-certificados {
+          .mat-form-field {
+            &.mat-form-field-should-float {
+              .mat-form-field-underline {
+                display: none;
+              }
+            }
+
+            .mat-form-field-wrapper {
+              &.resumos {
+                padding-bottom: 0;
+              }
+            }
+
+            .mat-form-field-label-wrapper {
+              top: calc(50% - 48px);
+              left: 16px;
+              width: calc(100% - 32px);
+              text-align: center;
+
+              label {
+                font-size: 1.25rem;
+                white-space: normal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  app-accordion-new {
+    mat-expansion-panel-header {
+      &:hover {
+        background-color: transparent !important;
+      }
+    }
+
+    .mat-expansion-indicator {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  app-comentarios {
+    .mat-tab-nav-bar {
+      &.mat-primary {
+        .mat-ink-bar {
+          height: 3px;
+          background-color: $sol-brilhante;
+        }
+      }
+    }
+  }
+
+  app-lista-paginada {
+    .mat-tab-label.mat-tab-label-active {
+      min-width: unset;
+      height: 55px;
+      margin: 0.3rem;
+      background: $azul-endeavour;
+      color: $branco;
+      opacity: 1;
+    }
+
+    .mat-tab-label {
+      min-width: unset;
+      height: 55px;
+      margin: 0.3rem;
+      background: $concreto;
+      color: $preto-solido;
+      opacity: 1;
+    }
+
+    .mat-tab-label .mat-tab-label-content {
+      display: inline-flex;
+      vertical-align: center;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-family: BancoDoBrasilTextos-book, monospace !important;
+      white-space: initial;
+    }
+
+    .mat-tab-header,
+    .mat-tab-nav-bar {
+      border-bottom: 0;
+    }
+
+    .mat-ink-bar {
+      visibility: hidden !important;
+    }
+  }
+
+  app-gestao-comentario-denunciado {
+    .mat-expansion-panel-body {
+      padding: 0 4px;
+    }
+  }
+
+  // ---------------------------------------------------------------------------- /
+
+  // -------------------------- Sobrescrita Bootstrap --------------------------- /
+  .invalid-feedback {
+    display: block !important;
+  }
+
+  /* Alteração Gutter para 8px - Historia 179822*/
+  div[class^='col-'] {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  div[class^='container'] {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .row {
+    margin-right: -8px;
+    margin-left: -8px;
+  }
+
+  // ---------------------------------------------------------------------------- /
+
+  // ------------------- Sobrescrita Calendar ng-pick-time ---------------------- /
+  .owl-dt-calendar-cell-content {
+    border-radius: 3px !important;
+    background-color: $bkg-ng-pick;
+    color: $color-1-ng-pick !important;
+  }
+
+  .owl-dt-control-button-content {
+    color: $color-2-ng-pick;
+    font-size: 1.5rem;
+    font-family: BancoDoBrasilTitulos, monospace !important;
+  }
+
+  .owl-dt-control-button-arrow {
+    display: none !important;
+  }
+
+  .owl-dt-container-buttons {
+    display: block;
+  }
+
+  .owl-dt-timer-box {
+    font-size: 0.8rem;
+  }
+
+  .owl-dt-control-arrow-button {
+    svg {
+      width: 30%;
+      height: 30%;
+    }
+  }
+
+  .owl-dt-calendar-table {
+    .owl-dt-calendar-cell-selected {
+      background-color: $azul-escuro !important;
+      color: $branco !important;
+      font-weight: 700;
+    }
+  }
+
+  .owl-dt-container-control-button {
+    .owl-dt-control-button-content {
+      font-size: 1rem;
+    }
+  }
+
+  // ---------------------------------------------------------------------------- /
+
+  // ---------------------------- Sobrescrita Angular --------------------------- /
+  input,
+  select,
+  textarea {
+    &.ng-touched.ng-invalid:not(form) {
+      border: 1px solid $com-suspensao;
+    }
+  }
+
+  .ng2-tags-container {
+    .inline {
+      font-family: BancoDoBrasilTextos, monospace !important;
+    }
+  }
+
+  tag-input-form {
+    input {
+      &[class^='ng2-tag-input'],
+      &[class*='ng2-tag-input'] {
+        &.ng-touched.ng-pristine:not(form) {
+          font-family: BancoDoBrasilTextos, monospace;
+        }
+      }
+    }
+  }
+
+  .ng2-dropdown-menu {
+    position: fixed !important;
+    z-index: 99999 !important;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: $cinza-calice;
+    }
+
+    div {
+      max-height: 150px;
+
+      .ng2-menu-item {
+        @include font-size-px-to-rem(14);
+        color: $preto-solido !important;
+        font-family: BancoDoBrasilTextos, monospace !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,397 @@
+@import 'variables';
+@import 'mixins';
+
+app-novo-menu-aplicativos {
+  .modo-edicao-icon-pencil-solid,
+  .modo-edicao-icon-undo {
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .modo-edicao-icon-pencil-solid {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-center'] {
+          > p {
+            &::after {
+              right: calc(100% - 90px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modo-edicao-icon-undo {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-center'] {
+          > p {
+            transform: scale(-1, 1);
+
+            &::after {
+              right: calc(100% - 95px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+app-header,
+app-aplicacoes-intranet-header {
+  .tooltip {
+    &[class*='tooltip-center'] {
+      top: 33px;
+
+      > p {
+        &::after {
+          right: calc(100% - 55%);
+        }
+      }
+    }
+  }
+
+  .header-conteudo {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -65px;
+      }
+    }
+  }
+
+  .header-aplicativo {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -38px;
+      }
+    }
+  }
+
+  .header-email {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -67px;
+      }
+    }
+  }
+
+  .header-ouvidoria-interna {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -60px;
+      }
+    }
+  }
+
+  .header-plataforma {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -52px;
+      }
+    }
+  }
+
+  .header-administracao {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -82px;
+      }
+    }
+  }
+
+  .header-notificacao {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -46px;
+      }
+    }
+  }
+
+  .header-teams {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -57px;
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .header-logout {
+    .tooltip {
+      > p {
+        &::after {
+          right: calc(100% - 93%);
+        }
+      }
+
+      &[class*='tooltip-center'] {
+        top: 27px;
+      }
+    }
+  }
+
+  .header-aplicativo,
+  .header-conteudo,
+  .header-email,
+  .header-ouvidoria-interna,
+  .header-plataforma,
+  .header-administracao,
+  .header-logout,
+  .header-notificacao {
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+app-timeline-agn {
+  .tooltip-bolinha-agn {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-right'] {
+          top: -3px;
+          left: 40px;
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+app-gerenciar-tipo-documento {
+  .tooltip-editar-tipo-documento,
+  .tooltip-excluir-tipo-documento {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-center'] {
+          left: -25px;
+        }
+
+        > p {
+          &::after {
+            right: calc(100% - 24px);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+app-editor {
+  .add-menu {
+    .info {
+      position: relative;
+
+      app-tooltip {
+        .tooltip {
+          &[class*='tooltip-center'] {
+            top: 40px;
+          }
+        }
+      }
+
+      > p {
+        &::after {
+          right: calc(100% - 55%);
+        }
+      }
+
+      &:hover {
+        .tooltip {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .tooltip-mover {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -61px;
+      }
+    }
+  }
+
+  .tooltip-adicionar {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -68px;
+      }
+    }
+  }
+
+  .tooltip-remover {
+    .tooltip {
+      &[class*='tooltip-center'] {
+        left: -42px;
+      }
+    }
+  }
+}
+
+app-gatilho-menu-flutuante {
+  .botao-publicador {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-center'] {
+          top: 53px;
+          left: 147px;
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+app-gerador-api {
+  .excluir-token-usuario,
+  .nome-aplicacao,
+  .chave-acesso {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-center'] {
+          top: 48px;
+          left: -22px;
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .icon-info {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-right'] {
+          top: -18px;
+          left: 271px;
+          opacity: 1;
+        }
+
+        p {
+          width: 256px;
+          white-space: normal;
+        }
+
+        > p {
+          &::after {
+            top: 22px;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+app-gestao-tokens-ai-intra {
+  .mat-slide-toggle-tooltip {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-left'] {
+          top: 6px;
+          right: 78px;
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+app-card-comentario-denunciado {
+  .icon-link-alternate,
+  .icon-document-history {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-bottom'] {
+          top: -50px;
+          left: -53px;
+        }
+
+        > p {
+          &::after {
+            right: calc(100% - 50%);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+app-menu-intranet {
+  .info {
+    app-tooltip {
+      .tooltip {
+        &[class*='tooltip-center'] {
+          top: 36px;
+          left: 111px;
+        }
+
+        > p {
+          width: 252px;
+          height: 76px;
+          white-space: normal;
+
+          &::after {
+            right: calc(100% - 50%);
+            bottom: 83px;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import 'themes-variables';
+// Tema de cores novembro azul
+$azul-horizonte: #5d92a2;
+$verde-glacier: #80b6c6;
+$verde-glacier-opacity: rgba(128, 182, 198, 0.6);
+$verde-glacier-opacity2: rgba(128, 182, 198, 0.5);
+
+// Mapeamento das cores
+$theme-map-blue: (
+  $theme-color-1: $azul-horizonte,
+  $theme-color-2: $verde-glacier,
+  $theme-color-3: $verde-glacier-opacity,
+  $theme-color-4: $cosmos-blue,
+  $theme-color-5: $verde-glacier-opacity2,
+);

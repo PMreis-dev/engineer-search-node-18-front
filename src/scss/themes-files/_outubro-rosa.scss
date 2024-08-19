@@ -1,0 +1,14 @@
+@import 'themes-variables';
+// Tema de cores outubro rosa
+$rosa-conhaque: #b47d7d;
+$rosa-orquidea: #dca09b;
+$rosa-orquidea-opacity: rgba(220, 160, 155, 0.6);
+
+// Mapeamento das cores
+$theme-map-pink: (
+  $theme-color-1: $rosa-conhaque,
+  $theme-color-2: $rosa-orquidea,
+  $theme-color-3: $rosa-orquidea-opacity,
+  $theme-color-4: $cosmos-blue,
+  $theme-color-5: $rosa-orquidea-opacity,
+);

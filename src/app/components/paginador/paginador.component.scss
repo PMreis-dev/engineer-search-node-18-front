@@ -1,0 +1,85 @@
+@import 'variables';
+@import 'mixins';
+
+.icones {
+  color: $azul-endeavour;
+}
+
+span {
+  &::before {
+    @include font-size-px-to-rem(16);
+  }
+}
+
+.page-size-options {
+  p,
+  .mat-form-field {
+    display: inline-block;
+    width: initial;
+  }
+}
+
+.page-item {
+  &.page-numbers {
+    a {
+      border-radius: 4px;
+      background-color: $verde-glacier;
+
+      &.active {
+        border-radius: 50%;
+        background-color: $azul-cello;
+        color: $fizz-dourado;
+      }
+    }
+  }
+
+  &.disabled {
+    a {
+      cursor: not-allowed;
+
+      .icones {
+        color: $cinza-mid;
+      }
+    }
+  }
+
+  .page-link {
+    @include flex-box;
+    @include altura-igual-largura(30px);
+    @include font-size-px-to-rem(14);
+    margin: 0 4px;
+    padding: 0;
+    border: initial;
+    color: $azul-pruciano;
+    cursor: pointer;
+
+    &.ellipsis-icon {
+      cursor: initial;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      span {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.custom-paginator {
+  display: flex;
+
+  .page-item {
+    @include flex-box;
+  }
+
+  a,
+  p {
+    background-color: transparent;
+  }
+}
+
+:host-context(.table) .custom-paginator {
+  padding-top: 16px;
+}

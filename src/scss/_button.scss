@@ -1,0 +1,111 @@
+@import 'variables';
+@import 'mixins';
+
+label {
+  margin-bottom: 0.2rem;
+}
+
+input,
+button {
+  &.btn {
+    @include font-size-px-to-rem(16);
+
+    &.btn-primary {
+      @include class-botoes($dourado-champagne, $azul-cello, $azul-cello);
+      font-family: BancoDoBrasilTitulos-book, monospace;
+    }
+
+    &.btn-outline-primary {
+      @include class-botoes($cosmos-blue, $verde-glacier, $verde-glacier);
+      font-family: BancoDoBrasilTitulos-book, monospace;
+    }
+
+    &:disabled {
+      @include class-botoes($cinza-claro, $color-btn-disabled, $color-btn-disabled);
+    }
+  }
+}
+
+.btn-close-custom {
+  /* ordem abaixo é necessária, pois faz uso do important */
+  border: 1px solid $btn-close-custom !important;
+  border-left: 0 !important;
+  color: $cinza-inativo !important;
+}
+
+.go-to-top {
+  button {
+    position: fixed;
+    top: 90%;
+    right: 20px;
+    bottom: 40px;
+    z-index: 1029;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $color-titulos;
+    font-size: 1rem;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    span {
+      color: $branco;
+    }
+  }
+}
+
+.float-button {
+  div {
+    ul {
+      display: flex;
+      align-items: center;
+      width: 0;
+      height: 50px;
+      margin: 0 0 0 25px;
+      padding-left: 0;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+      background-color: $branco;
+      box-shadow: 0 3px 5px -1px $cinza-super-claro, 0 6px 10px 0 $preto-sombreado, 0 1px 18px 0 $preto-sombreado;
+      list-style: none;
+      transition: all 0.5s ease-out;
+
+      &.activaded {
+        width: calc(100% - 25px);
+        padding-left: 41px;
+
+        li {
+          opacity: 1;
+          transition: opacity 0.5s ease;
+          transition-delay: 0.6s;
+        }
+      }
+
+      &.inactivaded {
+        pointer-events: none;
+
+        li {
+          opacity: 0;
+          transition: opacity 0.1s ease;
+          transition-delay: 0s;
+        }
+      }
+
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4px;
+        padding-right: 32px;
+        color: $azul-pruciano;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

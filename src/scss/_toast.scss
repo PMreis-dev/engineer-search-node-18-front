@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  .toast-container {
+    .ngx-toastr {
+      @include font-size-px-to-rem(16);
+      width: 360px;
+      padding: 9px 15px 15px 50px;
+      border-radius: 4px;
+      color: $preto-ferrugem;
+    }
+
+    .toast-close-button {
+      top: 5px;
+      color: $gun-metal;
+    }
+
+    .toast-message {
+      margin-top: 7px;
+    }
+
+    .toast-success {
+      background-color: $clear-day;
+      background-image: url('../assets/images/icone-toast-success.png');
+    }
+
+    .toast-error {
+      background-color: $very-light-pink;
+      background-image: url('../assets/images/icone-toast-error.png');
+    }
+
+    .toast-info {
+      background-color: $water;
+      background-image: url('../assets/images/icone-toast-info.png');
+    }
+
+    .toast-warning {
+      background-color: $early-dawn;
+      background-image: url('../assets/images/icone-toast-warn.png');
+    }
+  }
+}

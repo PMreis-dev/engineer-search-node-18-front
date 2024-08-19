@@ -1,0 +1,98 @@
+<div class="card-body">
+  <form [formGroup]="formFiltroAvancado" *ngIf="formFiltroAvancado" [ngClass]="{ 'filtro-feed': mostrarFiltroBusca }">
+    <div class="row">
+      <div class="col-12 d-flex">
+        <label class="font-texto mr-3 font-filtro" [ngClass]="{ 'col-3': !mostrarFiltroBusca }">Filtros
+          avançados</label>
+        <mat-select class="col font-texto mat-select-no-border filtro-avancado-font-size" placeholder="Assuntos"
+          formControlName="filtroAssunto" *ngIf="abaPerfilAtual != 'perfis' && abaPerfilAtual != 'aplicativos'">
+          <mat-option>
+            <ngx-mat-select-search [formControl]="pesquisaAssunto" [searching]="false"
+              placeholderLabel="Digite um assunto..." noEntriesFoundLabel="Nenhum assunto encontrado!"
+              (input)="onAssuntoChange()">
+              <span aria-hidden="false" ngxMatSelectSearchClear>
+                <p (click)="limparAssunto()">x</p>
+              </span>
+            </ngx-mat-select-search>
+          </mat-option>
+          <mat-option class="font-texto" *ngFor="let assunto of dataFiltroAvancado.assuntos"
+            [value]="assunto.textoAssunto + ' | ' + assunto.textoSubAssunto" (click)="onAssuntoSelecionado(assunto)">
+            {{ assunto.textoAssunto + ' | ' + assunto.textoSubAssunto }}
+          </mat-option>
+        </mat-select>
+        <mat-select class="col font-texto mat-select-no-border" formControlName="filtroTipoPerfil"
+          *ngIf="abaPerfilAtual === 'perfis'">
+          <mat-option class="font-texto" *ngFor="let tipo of tiposPerfis" [value]="tipo.value" placeholder="Todos"
+            (click)="buscar()">
+            {{ tipo.name }}
+          </mat-option>
+        </mat-select>
+        <mat-select class="col font-texto mat-select-no-border filtro-avancado-font-size" placeholder="Tipo Notícia"
+          formControlName="filtroTipoNoticia" *ngIf="mostraFiltroTipoNoticia && abaPerfilAtual === 'noticias'">
+          <mat-option class="font-texto" *ngFor="let tipoNoticia of dataFiltroAvancado.tiposNoticia"
+            [value]="tipoNoticia?.codigoTipoNoticia" (click)="buscar()">
+            {{ tipoNoticia.tituloTipoNoticia }}
+          </mat-option>
+        </mat-select>
+        <mat-select class="col font-texto mat-select-no-border filtro-avancado-font-size" placeholder="Tipo Documento"
+          formControlName="filtroTipoGuia" [disabled]="isUsuarioSac"
+          *ngIf="mostraFiltroTipoDocumento && abaPerfilAtual === 'documentos'">
+          <mat-option>
+            <ngx-mat-select-search [formControl]="pesquisaTipoDocumento"
+              [searching]="false" placeholderLabel="Digite um tipo documento"
+              noEntriesFoundLabel="Nenhum tipo encontrado!" (input)="onChangeTipoGuia()">
+              <span aria-hidden="false" ngxMatSelectSearchClear>
+                <p (click)="limparTipoGuia()">x</p>
+              </span>
+            </ngx-mat-select-search>
+          </mat-option>
+          <mat-option class="font-texto" *ngFor="let tipoDocumento of dataFiltroAvancado.tiposDocumentos"
+            [value]="tipoDocumento?.tituloTipoGuia" (click)="buscar()">
+            {{ tipoDocumento.tituloTipoGuia }}
+          </mat-option>
+        </mat-select>
+        <mat-select class="col font-texto mat-select-no-border filtro-avancado-font-size"
+          formControlName="filtroAplicativo" *ngIf="abaPerfilAtual === 'aplicativos'">
+          <mat-option class="font-texto" *ngFor="let tipoAplicativo of filtroAplicativos"
+            [value]="tipoAplicativo.CODIGO" placeholder="Todos" (click)="buscar()">
+            {{ tipoAplicativo.TEXTO }}
+          </mat-option>
+        </mat-select>
+        <mat-select class="col font-texto mat-select-no-border filtro-avancado-font-size" placeholder="Unidade"
+          formControlName="filtroUnidade" *ngIf="mostraFiltroUnidade">
+          <mat-option>
+            <ngx-mat-select-search [formControl]="pesquisaUnidade" [searching]="false"
+              placeholderLabel="Digite uma unidade..." noEntriesFoundLabel="Nenhuma unidade encontrada!"
+              (input)="onChangeUnidade()">
+              <span aria-hidden="false" ngxMatSelectSearchClear>
+                <p (click)="limparUnidade()">x</p>
+              </span>
+            </ngx-mat-select-search>
+          </mat-option>
+          <mat-option class="font-texto" *ngFor="let unidade of dataFiltroAvancado.unidades"
+            [value]="unidade?.idPerfilUnidade" (click)="onUnidadeSelecionada(unidade?.idPerfilUnidade)">
+            {{ unidade.siglaUOR || unidade.nomeReduzidoUOR }}
+          </mat-option>
+        </mat-select>
+        <mat-select class="col font-texto mat-select-no-border filtro-avancado-font-size"
+          formControlName="filtroTipoVigencia"
+          *ngIf="mostraFiltroVigencia && (abaPerfilAtual === 'intranet' || abaPerfilAtual === 'documentos')">
+          <mat-option class="font-texto" *ngFor="let tipo of tiposVigencia" [value]="tipo.value" placeholder="Todos"
+            (click)="buscar()">
+            {{ tipo.name }}
+          </mat-option>
+        </mat-select>
+
+        <mat-select class="col font-texto mat-select-no-border filtro-avancado-font-size"
+          formControlName="filtroOrdemAplicativo" *ngIf="abaPerfilAtual === 'aplicativos'">
+          <mat-option class="font-texto" placeholder="Ordenar Por" *ngFor="let item of ordenacoes" [value]="item.CODIGO"
+            (click)="buscar()">{{ item.TEXTO }}
+          </mat-option>
+        </mat-select>
+        <input type="button" id="btn-limpar-filtro" value="Limpar filtros" (click)="limparFiltro()"
+          class="btn btn-link col azul-endeavour td-none filtro-avancado-font-size" />
+        app-barra-de-busca
+      </div>
+    </div>
+  </form>
+</div>

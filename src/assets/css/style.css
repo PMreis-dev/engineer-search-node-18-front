@@ -1,0 +1,468 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  min-width: 1000px;
+}
+body.toggled {
+  overflow: hidden;
+}
+
+.scroll-hiden {
+  overflow-y: hidden;
+}
+
+.container-contact {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: center;
+}
+
+.icone-mensagem {
+  float: left;
+  margin-top: 5px;
+}
+
+.icone-alerta {
+  margin-left: 8px;
+  margin-top: 5px;
+}
+
+.icone-notificacao {
+  margin: 0px;
+}
+
+.link-plt {
+  margin-left: 8px;
+  margin-top: 8px;
+}
+.login img {
+  background-color: #1976d2;
+  border-radius: 1rem;
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  margin: 0.19rem auto;
+  background-size: 100%;
+  border: 0.06rem solid #ffffff;
+}
+
+.controle-login {
+  margin-left: 10px;
+  /* width: 140px; */
+  display: table;
+}
+
+.time {
+  float: left;
+  width: 60px;
+  height: 15px;
+  margin-bottom: 5px;
+  color: #1976d2;
+}
+
+.logof {
+  width: 60px;
+  height: 15px;
+  color: #215297;
+}
+
+.container-nav {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  padding-left: 25px;
+}
+
+#contact-humanograma {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+}
+
+/* contatos 
+/* infousuario.css */
+.infousuario {
+  text-align: center;
+  background-color: orange;
+  width: 220px;
+}
+
+.avatar {
+  margin-top: 20px;
+  border: 9px solid #1976d2;
+  border-radius: 50%;
+}
+
+.nome {
+  margin: 0;
+  color: #747c81;
+  margin-top: 20px;
+}
+
+.label {
+  margin-top: 15px;
+}
+
+.badgei {
+  position: relative;
+  top: -12px;
+  left: 14px;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #f8d117;
+  border-radius: 8px;
+}
+
+.badge-link-plt {
+  position: relative;
+  top: -11px;
+  left: 20px;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #1976d2;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.circle {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.circle-link {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: 8px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 1s ease-out;
+}
+
+.circle-link:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-open .efeitoBlur {
+  filter: blur(4px);
+}
+
+/*Configurações do Login*/
+.loginComponent .logo-bb {
+  width: 65px;
+  height: 64px;
+}
+.loginComponent .full-height {
+  height: 100vh;
+}
+.loginComponent .no-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.loginComponent .pl-0 {
+  padding-left: 0 !important;
+}
+.loginComponent .mb-8px {
+  margin-bottom: 8px;
+}
+.loginComponent .mb-24px {
+  margin-bottom: 24px;
+}
+.loginComponent .mb-44px {
+  margin-bottom: 44px;
+}
+.loginComponent .mb-48px {
+  margin-bottom: 48px;
+}
+.loginComponent .mb-80px {
+  margin-bottom: 80px;
+}
+.loginComponent .mt-80px {
+  margin-top: 80px;
+}
+.loginComponent .mb-88px {
+  margin-bottom: 88px;
+}
+.loginComponent h1 {
+  width: 313px;
+  height: 96px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 96px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: #00375f;
+}
+.loginComponent h6 {
+  width: 368px;
+  height: 64px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 22px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.85);
+}
+.loginComponent .login-input {
+  width: 445px;
+  height: 56px;
+  border-radius: 4px;
+  background-color: rgba(51, 51, 51, 0.05);
+}
+.loginComponent .placeholder {
+  width: 50px;
+  height: 28px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: 0.1px;
+  color: rgba(0, 0, 0, 0.36);
+}
+.loginComponent .Btn {
+  width: 445px;
+  height: 40px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 0.75px;
+  text-align: center;
+  color: #ffffff;
+}
+.loginComponent .BG {
+  width: 445px;
+  height: 56px;
+  border-radius: 4px;
+  background-color: #003659;
+}
+.loginComponent .p-1 {
+  width: 445px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.36);
+}
+.loginComponent .p-1 a {
+  width: 445px;
+  height: 24px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #118ff0;
+  cursor: pointer;
+}
+.loginComponent .link-2 {
+  width: 251px;
+  height: 24px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  text-align: center;
+  color: #118ff0;
+  cursor: pointer;
+}
+.loginComponent .Rectangle-Copy {
+  width: 872px;
+  height: 720px;
+  transform: rotate(-90deg);
+  background-color: rgba(246, 246, 246, 0.5);
+}
+.loginComponent .RectangleFinal {
+  width: 720px;
+  height: 1024px;
+  background-color: #003659;
+}
+.loginComponent .Rectangle {
+  width: 8px;
+  height: 80px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.loginComponent h4 {
+  width: 399px;
+  height: 40px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 32px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+.loginComponent .h6-copy {
+  width: 446px;
+  height: 24px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.loginComponent .p-2-light {
+  width: 468px;
+  height: 822px;
+  font-family: BancoDoBrasilTextos, monospace;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.25px;
+  color: #ffffff;
+}
+.loginComponent .modal.fade:not(.in).right .modal-dialog {
+  -webkit-transform: translate3d(54%, 0, 0);
+  transform: translate3d(54%, 0, 0);
+}
+.loginComponent .modal-body {
+  background-color: #003659;
+  height: calc(87vh - 130px);
+  overflow-y: scroll;
+  border-bottom: 0 none;
+}
+.loginComponent .modal-open {
+  overflow: hidden;
+}
+.loginComponent .modal-header .close {
+  padding: initial;
+  margin: 5px;
+  margin-right: 18px;
+  margin-left: 1px;
+  margin-top: 60px;
+  color: #ffffff;
+}
+.loginComponent .modal-header {
+  background-color: #003659;
+  border-bottom: 0 none;
+}
+.loginComponent .modal-dialog {
+  margin-top: 0rem;
+  max-width: 50%;
+}
+.loginComponent .modal-footer {
+  background-color: #003659;
+  border-bottom: 0 none;
+  border: none;
+  height: 100px;
+  border-radius: 0px;
+}
+.loginComponent .vertical {
+  vertical-align: right;
+  display: table-cell;
+  max-width: 50ch;
+  font-size: 1.2em;
+}
+
+.loginComponent .modalDialog {
+  margin-top: 100px;
+  max-width: 100%;
+}
+.loginComponent .posicaoText {
+  float: left;
+  margin-left: 8%;
+}
+.loginComponent .posicaoTextTitulo {
+  float: left;
+  margin-left: 8%;
+  margin-top: 90px;
+}
+.loginComponent .posicaoTextSemiTitulo {
+  float: left;
+  margin-left: -75%;
+  margin-top: 132px;
+}
+.loginComponent ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+  height: 80px;
+}
+.loginComponent ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.12);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.loginComponent .fundo {
+  background-color: #003659;
+  border: none;
+  border-radius: 0px;
+}
+.progress-dimensions {
+  height: 1rem !important;
+  width: 250px;
+  margin-top: 1%;
+}
+.progress-background {
+  background-color: #005aa5;
+}

@@ -1,0 +1,6 @@
+@import './variables';
+
+// Conversor px para rem.
+@function px-to-rem($valor-pixels) {
+  @return #{$valor-pixels/$font-size-default}rem;
+}

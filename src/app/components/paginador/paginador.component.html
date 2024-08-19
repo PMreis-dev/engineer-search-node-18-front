@@ -1,0 +1,35 @@
+<div class="custom-paginator" [ngClass]="{ 'justify-content-center': customTemplate }">
+  <nav aria-label="Page navigation example" role="navigation" *ngIf="maxPage > 0">
+    <ul class="pagination">
+      <li class="page-item" [ngClass]="{ disabled: 0 === currentPage || maxPage === 1 }">
+        <a class="page-link font-titulos" aria-label="Voltar Pagina" (click)="voltarPagina()"><span class="icones icon-chevron-left left"></span></a>
+      </li>
+      <li class="page-item page-numbers" *ngIf="currentPage > 2 && maxPage > 7">
+        <a class="page-link font-titulos" aria-label="Ir para Primeira" (click)="irParaPrimeira()">1</a>
+      </li>
+      <li class="page-item page-numbers" *ngIf="currentPage > 2 && maxPage > 7">
+        <p class="page-link ellipsis-icon"><span class="icones icon-navigation-show-more-vertical"></span></p>
+      </li>
+      <li class="page-item page-numbers" *ngFor="let item of btnitens">
+        <a class="page-link font-titulos" aria-label="Va para pagina" [ngClass]="{ active: item - 1 === currentPage }" (click)="vaParaPagina(item - 1)">{{ item }}</a>
+      </li>
+      <li class="page-item page-numbers" *ngIf="maxPage - 3 > currentPage && maxPage !== 1 && maxPage > 7">
+        <p class="page-link ellipsis-icon"><span class="icones icon-navigation-show-more-vertical"></span></p>
+      </li>
+      <li class="page-item page-numbers" *ngIf="maxPage - 3 > currentPage && maxPage !== 1 && maxPage > 7">
+        <a class="page-link font-titulos" aria-label="Ir para Ultima" (click)="irParaUltima()">{{ maxPage }}</a>
+      </li>
+      <li class="page-item" [ngClass]="{ disabled: maxPage - 1 === currentPage || maxPage === 1 }">
+        <a class="page-link font-titulos" aria-label="Avançar Pagina" (click)="avancarPagina()"><span class="icones icon-chevron-right"></span></a>
+      </li>
+    </ul>
+  </nav>
+  <div class="paginator-page-size" *ngIf="exibeRegistros === true && !customTemplate">
+    <p>
+      Exibindo
+      {{ maxPage === currentPage + 1 ? quantidadeItem : (currentPage + 1) * itensPorPagina }}
+
+      de {{ quantidadeItem }} registros
+    </p>
+  </div>
+</div>

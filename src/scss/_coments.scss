@@ -1,0 +1,14 @@
+@import 'variables';
+
+app-gestao-comentario {
+  .comentario {
+    margin-bottom: 10px;
+    border: 1px solid $cinza-atenas;
+    border-radius: 4px;
+    background-color: $branco;
+
+    &.nao-lido {
+      background-color: $black-squeeze;
+    }
+  }
+}

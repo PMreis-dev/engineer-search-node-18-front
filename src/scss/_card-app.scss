@@ -1,0 +1,29 @@
+@import 'variables';
+@import 'mixins';
+
+app-loja-aplicativo,
+app-aplicativo {
+  .flip-card {
+    @include altura-igual-largura(260px);
+  }
+
+  .front-card,
+  .back-card {
+    min-width: 255px;
+    min-height: 255px;
+
+    .btn-flipper-card {
+      left: 87%;
+    }
+  }
+
+  .card-aplicativo {
+    min-width: 255px;
+    min-height: 255px;
+
+    .titulo-card-front,
+    .titulo-card-verso {
+      max-width: 231px;
+    }
+  }
+}

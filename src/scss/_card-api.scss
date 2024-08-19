@@ -1,0 +1,88 @@
+@import 'variables';
+
+app-gerador-api {
+  //médio
+  @media screen and (min-width: 768px) {
+    .cor-faixa-card {
+      &:nth-of-type(-n + 2) {
+        .conteudo-card {
+          border-color: $verde-agua;
+        }
+      }
+
+      &:nth-of-type(n + 3) {
+        .conteudo-card {
+          border-color: $rosa-palido;
+        }
+      }
+
+      &:nth-of-type(n + 5) {
+        .conteudo-card {
+          border-color: $azul-celeste;
+        }
+      }
+
+      &:nth-of-type(n + 7) {
+        .conteudo-card {
+          border-color: $lavanda;
+        }
+      }
+    }
+  }
+
+  //pequeno
+  @media screen and (min-width: 0) {
+    .cor-faixa-card {
+      &:nth-of-type(4n-3) {
+        .conteudo-card {
+          border-color: $verde-agua;
+        }
+      }
+
+      &:nth-of-type(4n-2) {
+        .conteudo-card {
+          border-color: $rosa-palido;
+        }
+      }
+
+      &:nth-of-type(4n-1) {
+        .conteudo-card {
+          border-color: $azul-celeste;
+        }
+      }
+
+      &:nth-of-type(4n) {
+        .conteudo-card {
+          border-color: $lavanda;
+        }
+      }
+    }
+  }
+
+  //default
+  .cor-faixa-card {
+    &:nth-of-type(-n + 4) {
+      .conteudo-card {
+        border-color: $verde-agua;
+      }
+    }
+
+    &:nth-of-type(n + 5) {
+      .conteudo-card {
+        border-color: $rosa-palido;
+      }
+    }
+
+    &:nth-of-type(n + 9) {
+      .conteudo-card {
+        border-color: $azul-celeste;
+      }
+    }
+
+    &:nth-of-type(n + 13) {
+      .conteudo-card {
+        border-color: $lavanda;
+      }
+    }
+  }
+}

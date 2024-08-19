@@ -1,0 +1,95 @@
+@import 'variables';
+@import 'mixins';
+
+.azul-endeavour {
+  color: $azul-endeavour;
+}
+
+.mat-select-no-border {
+  border: 0;
+}
+
+.d-flex {
+  @include flex-box;
+}
+
+.td-none {
+  text-decoration: none;
+}
+
+label {
+  text-align: center;
+}
+
+mat-select {
+  &.mat-select-disabled,
+  &.mat-select-disabled:focus,
+  &.mat-select-disabled:hover {
+    background-color: $concreto;
+    opacity: 1;
+  }
+}
+
+.card-body {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+@media screen and (min-width: 1702px) {
+  .filtro-feed {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .filtro-feed {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1367px) {
+  .filtro-feed {
+    width: 100%;
+  }
+
+  .input-pesquisa {
+    margin-left: 164px;
+  }
+}
+
+.font-filtro {
+  color: $cosmos-blue;
+}
+
+.filtro-avancado-font-size {
+  @include font-size-px-to-rem(14);
+}
+
+.icon-search {
+  background: $branco;
+}
+
+.input-pesquisa {
+  top: 2.3rem;
+  right: 6.5rem;
+  display: flex;
+  align-items: center;
+  min-width: 38%;
+  margin-left: 164px;
+
+  > input {
+    @include font-size-px-to-rem(16);
+    padding-left: 16px;
+    color: $cinza-claro;
+  }
+
+  > div {
+    position: absolute;
+    right: 12px;
+    height: calc(1.5em + 0.75rem + 5px);
+    line-height: 3;
+
+    > span {
+      @include font-size-px-to-rem(22.4);
+      color: $azul;
+      font-weight: 700;
+    }
+  }
+}

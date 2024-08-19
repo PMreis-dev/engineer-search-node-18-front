@@ -1,0 +1,196 @@
+// Declaração de variaveis para uso no Artemis
+@import 'themes-files/default';
+@import 'themes-files/outubro-rosa';
+@import 'themes-files/novembro-azul';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+// Valor padrão de fonte size
+$font-size-default: 16;
+
+// Cores hexadecimais
+$azul: #005aa5;
+$amarelo: #ffed00;
+$branco: #ffffff;
+$vermelho: #e53935;
+$verde: #43a047;
+$amarelo-2: #fae128;
+$azul-escuro: #003659;
+$azul-claro: #118ff0;
+$verde-claro: #eefae2;
+$rosa-claro: #fef3f9;
+$rosa-escuro: #e5585f;
+$color-titulos: #00375f;
+$bkg-color: #f6f6f6;
+$bkg-ng-pick: #ebeef4;
+$color-1-ng-pick: #202020;
+$color-2-ng-pick: #00375a;
+$color-btn-disabled: #a3a3a3;
+$btn-close-custom: #ced4da;
+$cinza-borda-icon-guia: #d8d8d8;
+$cinza-borda-inputs: #c1c1c1;
+$fundo-abas-inativas: #dddddd;
+$social-bar-icons: #bbbbbb;
+$cinza-conteudo-home: #f7f7f7;
+$cinza-placeholder: #8b8b8b;
+$font-alert: #f8f9fa;
+$form-disabled: #e9ecef;
+$comentario-admin: #fcf4a3;
+$border-buscador: #b9c8d2;
+$cinza-super-escuro: #333333;
+$cinza-escuro: #999999;
+$cinza-input-assunto: #495057;
+$cinza-escuro-2: #a2a2a2;
+$cinza-cropper: #53535c;
+$preto-solido: #000000;
+$sem-suspensao: #9bfcb1;
+$com-suspensao: #ea7070;
+$cinza-editor: #808080;
+$borda-abas: #c8c8c8;
+$crop-imagem-focus: #1e8fff;
+$laranja: #ffa600;
+$amarelo-claro: #e4e2da;
+$cinza-feed-secundario: #f4f4f6;
+$azul-cello: #1e4761;
+$mercurio: #e3e3e3;
+$alerta-versao: #fcd4d4;
+$dourado-champagne: #fffd2a;
+$concreto: #f2f2f2;
+$cornflower-blue: #5aaaa0;
+$branco-colonial: #fdf9d6;
+$branco-cream: #fffef1;
+$black-squeeze: #f6fafc;
+$cinza-atenas: #eeeff1;
+$cinza-mercurio: #e5e5e5;
+$branco-skeleton: #f8f8f8;
+$cinza-iron: #dbdde1;
+$gallery: #eaeaea;
+$alabaster: #fafafa;
+$cinza-solitude: #e5e7eb;
+$cinza-bombay: #b4b9c1;
+$amarelo-sunglow: #fbca3b;
+$geyser-grey: #ccd6dd;
+$coral-tree: #a36060;
+$gray: #888888;
+$verde-claro: #edffea;
+$azul-ciano-claro: #80b3c3;
+$azul-horizonte: #5d8f9f;
+$azul-matisse: #1d61a4;
+$azul-petroleo: #00578b;
+$cinza-azulado: #888d95;
+$light-grey: #eeeeee;
+$azul-dodger: #465eff;
+$azul-forte: #00578b;
+$azul-escuro-forte: #003857;
+$very-light-pink: #fff3f3;
+$clear-day: #edfff9;
+$water: #edf2ff;
+$early-dawn: #fefae9;
+$gun-metal: #313338;
+
+// Cores da nova paleta de cores do BB
+$azul-pruciano: #012d4c;
+$fizz-dourado: #fcfc30;
+$roxo-logan: #b4afd2;
+$roxo-ametista: #9187af;
+$verde-netuno: #87c3be;
+$verde-recife: #5aaaa0;
+$cinza-calice: #afafaf;
+$cinza-mid: #69696e;
+$azul-endeavour: #0061a0;
+$sol-brilhante: #fdcc3a;
+$cinza-tundora: #424242;
+$roxo-claro: #c061d8;
+$azul-eletrico: #3354fd;
+$branco-gelado: #fdfeff;
+$azul-vibrante: #265efd;
+$cinza-ardosia: #6c7077;
+$cinza-claro-frio: #f4f5f7;
+$amarelo-alaranjado: #e3a702;
+$verde-teal: #00907f;
+$vermelho-carmesim: #d51b06;
+$verde-agua: #3ec9c4;
+$rosa-palido: #d79ab9;
+$azul-celeste: #45c1eb;
+$lavanda: #9793ca;
+$azul-ardosia: #66707d;
+$preto-ferrugem: #111214;
+$amarelo-dourado: #fdf429;
+
+// Cores RGBA
+$preto: rgba(0, 0, 0, 0.85);
+$azul-escuro-opacity: rgba(0, 54, 89, 0.54);
+$azul-fundo-opacity: rgba(0, 54, 89, 0.12);
+$azul-claro-opacity: rgba(17, 143, 240, 0.12);
+$azul-esculo-termo: rgba(0, 54, 89, 1.44);
+$cinza-bkg-guia: rgba(0, 0, 0, 0.1);
+$azul-escuro-scrollbar: rgba(0, 54, 89, 0.66);
+$branco-opaco: rgba(255, 255, 255, 0.95);
+$bkg-color-default: rgba(0, 54, 89, 0.44);
+$azul-escuro-publicadores: rgba(0, 54, 89, 0.95);
+$cinza-escuro-sombreado: rgba(51, 51, 51, 0.05);
+$cinza-muito-claro-sombreado: rgba(246, 246, 246, 0.5);
+$branco-sombreado: rgba(255, 255, 255, 0.12);
+$branco-sombreado-2: rgba(255, 255, 255, 0.7);
+$branco-sombreado-3: rgba(255, 255, 255, 0.5);
+$preto-sombreado: rgba(0, 0, 0, 0.125);
+$preto-sombreado-2: rgba(0, 0, 0, 0.5);
+$preto-sombreado-3: rgba(0, 0, 0, 0.7);
+$vermelho-escuro: rgba(225, 25, 25, 0.65);
+$azul-claro-rgba: rgba(230, 230, 231, 1);
+$azul-claro-rgba-2: rgba(154, 220, 255, 0.6);
+$azul-claro-transparente: rgba(246, 248, 252, 0.4);
+$prata-cinquenta-porcento: rgba(200, 200, 200, 0.5);
+$verde-tooltip: rgba(136, 195, 190, 0.9);
+$cosmos-blue-opacity: rgba(0, 45, 75, 0.7);
+$azul-horizonte-opacity: rgba(93, 146, 162, 0.7);
+$roxo-ametista-opacity: rgba(145, 135, 175, 0.7);
+$verde-tooltip-opacity: rgba(136, 195, 190, 0.9);
+$background-dialog-modulos: rgba(0, 0, 0, 0.31);
+$verde-glacier-opacity: rgba(128, 182, 198, 0.5);
+$cinza-claro: rgba(0, 0, 0, 0.54);
+$cinza-super-claro: rgba(0, 0, 0, 0.2);
+$cinza-opacity: rgba(250, 250, 250, 0.4);
+$cinza-super-claro-2: rgba(0, 0, 0, 0.05);
+$cinza-inativo: rgba(0, 0, 0, 0.36);
+$cinza-claro-rgba: rgba(227, 227, 227, 0.71);
+$gradient-blue-linear: linear-gradient(180deg, $azul-endeavour 0%, $cosmos-blue 100%);
+$gradient-blue-linear-opacity: linear-gradient(180deg, rgba(0, 97, 160, 0.7) 0%, rgba(0, 45, 75, 0.7) 100%);
+$gradient-skeleton: linear-gradient(90deg, $cinza-calice 20%, $branco-skeleton 35%, $cinza-calice 60%);
+$gradient-preto-transparente: linear-gradient(180deg, transparent 0%, $preto-solido 100%);
+
+// Direções do linear-gradient
+$linear-cima-baixo: 224.66deg;
+$linear-baixo-cima: 24.66deg;
+$linear-esq-dir: 90deg;
+$linear-dir-esq: -90deg;
+
+// Cores status publicação
+$status-agendada: #b47d7d;
+$status-publicada: #00ae45;
+$status-rascunho: #747474;
+$status-suspensa: #ff411a;
+$status-cancelada: #f00060;
+$status-pendente: #6f00b1;
+$status-devolvida: #e53935;
+$array-status: 'agendada' $status-agendada, 'agendado' $status-agendada, 'publicada' $status-publicada, 'publicado' $status-publicada,
+  'rascunho' $status-rascunho, 'suspensa' $status-suspensa, 'suspenso' $status-suspensa, 'cancelada' $status-cancelada,
+  'cancelado' $status-cancelada, 'pendente' $status-pendente, 'devolvida' $status-devolvida, 'devolvido' $status-devolvida;
+
+// Array de alerts
+$alerts: 'warning' $amarelo-2, 'success' $verde, 'info' $azul-claro, 'danger' $status-devolvida;
+
+// Array para blocos do editor
+$block-colors: 'paragrafo' $cinza-mid $cinza-calice, 'imagem' $fizz-dourado $fizz-dourado, 'tabela' $azul-pruciano $azul-pruciano,
+  'carrossel' $verde-recife $verde-netuno, 'video' $roxo-ametista $roxo-logan;
+
+// Cores bordas cards
+$verde-sucesso: #089113;
+$vermelho-alert: #ae0102;
+
+// Cores de fundo do tooltip
+$verde-tooltip: #88c3be;
+
+$array-modulo-colors: 'modulo-branco' $branco, 'modulo-cosmos-blue' $cosmos-blue, 'modulo-amarelo' $dourado-champagne,
+  'modulo-azul-horizonte' $azul-horizonte, 'modulo-azul-glacier' $verde-glacier, 'modulo-rosa-escuro' $rosa-conhaque,
+  'modulo-rosa-claro' $rosa-orquidea, 'modulo-roxo-escuro' $roxo-ametista, 'modulo-roxo-claro' $roxo-logan,
+  'modulo-verde-escuro' $verde-recife, 'modulo-verde-claro' $verde-netuno;

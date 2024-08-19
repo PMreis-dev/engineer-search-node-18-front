@@ -1,0 +1,610 @@
+@import './variables';
+// Mixins para o projeto Artemis
+
+@mixin declare-font-face($font-family, $font-name) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: local('#{$font-family}'), (url('/assets/fonts/bancodobrasil/#{$font-name}-web.ttf')) format('truetype');
+  }
+}
+
+// Width e Height iguais
+@mixin altura-igual-largura($medida) {
+  width: $medida;
+  height: $medida;
+}
+
+@mixin borda-pontilhada-curva {
+  border: 1px dashed $cinza-calice;
+  border-radius: 4px;
+}
+
+@mixin borda-solid-curva {
+  border: 1px solid $cinza-calice;
+  border-radius: 4px;
+}
+
+//Mixin para Flex-box padrão
+@mixin flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+// Mixin para os padrões de botões
+@mixin class-botoes($color, $background, $border) {
+  @if $border != '' {
+    border-color: $border;
+  }
+
+  @if $color != '' {
+    color: $color;
+  }
+
+  @if $background != '' {
+    background-color: $background;
+  }
+  padding: 6px 20.8px;
+}
+
+// Mixins para animação da timeline de notificações
+@keyframes block-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// Mixin para imagem responsiva widescreen utilizando background-image
+@mixin responsive-img {
+  padding-bottom: calc(var(--proporcao-wide));
+  background-position: center center;
+  background-size: cover;
+}
+
+@mixin block-in-timeline {
+  animation: block-animation 0.8s;
+}
+
+@keyframes block-animation-inverse {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@mixin block-in-timeline-inverse {
+  animation: block-animation-inverse 0.8s;
+}
+
+// Mixin para cor da tag de status da publicacao
+@mixin status-publicacao {
+  @each $status, $color in $array-status {
+    &.#{$status} {
+      background: $color;
+    }
+  }
+}
+
+// Mixin para animação da caixa de notificações
+@keyframes expand {
+  0% {
+    top: -85px;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    top: 85px;
+    opacity: 1;
+  }
+}
+
+@mixin notification-box {
+  animation: expand 0.5s;
+}
+
+// Mixin para blur de background
+@mixin bkg-blur($color) {
+  background-color: $color;
+  backdrop-filter: blur(3px);
+}
+
+// Mixin para animação de opacidade padrão
+@keyframes opacity-default {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin opacity-default {
+  animation: opacity-default 0.5s ease;
+}
+
+// Mixin com linear-gradient padrão
+@mixin gradiente-padrao($grau-inclinacao) {
+  background-image: linear-gradient($grau-inclinacao, $azul-escuro 0%, $azul 100%);
+}
+
+// Mixin para os subassuntos
+@keyframes subassunto-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@mixin subassunto-menu() {
+  animation: subassunto-animation 0.7s ease-out;
+}
+
+// Mixins para os tooltips
+@keyframes tooltip-animation-to-left {
+  0% {
+    transform: translateX(40px);
+  }
+
+  60% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes tooltip-animation-to-right {
+  0% {
+    transform: translateX(-40px);
+  }
+
+  60% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes tooltip-animation-to-bottom {
+  0% {
+    transform: translateY(10px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@mixin show-tooltip($direction) {
+  @if $direction == 'left' {
+    animation: tooltip-animation-to-left 0.5s ease-out;
+  }
+  @if $direction == 'right' {
+    animation: tooltip-animation-to-right 0.5s ease-out;
+  }
+  @if $direction == 'bottom' {
+    animation: tooltip-animation-to-bottom 0.5s ease-out;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin fade-carrossel() {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+// Mixin para animação da troca de aba no formulário de guia
+@keyframes trocar-aba-1 {
+  0% {
+    left: calc(-100% - 32px);
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@mixin entrando-load() {
+  animation: trocar-aba-1 0.7s ease-in;
+}
+
+// Mixin para animação da troca de aba no formulário de guia
+@keyframes trocar-aba-2 {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@mixin saindo-load() {
+  animation: trocar-aba-2 0.7s ease-out;
+}
+
+@keyframes gradient-position {
+  0% {
+    background-position: 50% -50%;
+  }
+
+  50% {
+    background-position: 50% 150%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes progress {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@mixin gradient-animation {
+  background-size: 150% 150%;
+  animation: progress 1.7s ease-in-out infinite;
+}
+
+// Montar classe para os alertas do sistema
+@mixin alert-generate {
+  @each $name, $color in $alerts {
+    .alert-#{$name} {
+      border-color: $color;
+      background-color: $color;
+      color: $font-alert !important;
+    }
+  }
+}
+
+// Montar o mapa de cores para os temas
+@mixin montar-mapa($map: ()) {
+  @each $key, $value in $map {
+    #{$key}: $value;
+  }
+}
+
+// Montar classe para cores dos blocos.
+@mixin block-colors-generate {
+  @each $name, $border-color, $color in $block-colors {
+    &.#{$name} {
+      border: 1px solid $cinza-calice;
+
+      .management {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+// Mixin para focus dos blocos
+@mixin focus-generate {
+  @each $name, $border-color in $block-colors {
+    &.#{$name} {
+      .mce-content-body {
+        &:focus {
+          outline: $border-color solid 1px;
+        }
+      }
+    }
+  }
+}
+
+// Mixin para as toolbars
+@mixin toolbar-editor-color {
+  @each $name, $border-color, $color in $block-colors {
+    &.#{$name} {
+      .tox {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+
+        &.tox-tinymce-inline,
+        &.tox-tinymce-aux {
+          font-family: BancoDoBrasilTextos, monospace;
+
+          .tox-editor-header {
+            border-color: $border-color;
+          }
+
+          .tox-toolbar {
+            background-color: $azul-ciano-claro;
+          }
+        }
+
+        &:not([dir='rtl']) {
+          .tox-toolbar {
+            > div {
+              border-right: 1px solid $mercurio;
+              border-bottom: 1px solid $mercurio;
+            }
+          }
+        }
+
+        .tox-pop {
+          &.tox-pop--top {
+            &::before,
+            &::after {
+              border-bottom-color: $color;
+            }
+          }
+
+          &.tox-pop--bottom {
+            &::before,
+            &::after {
+              border-top-color: $color;
+            }
+          }
+
+          > div {
+            border: 0;
+          }
+
+          .tox-toolbar {
+            > div {
+              border-bottom: 1px solid $border-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mixin para animar o menu de gerencia
+@keyframes rotate-icon {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotateY(180deg) scale(1.3);
+  }
+
+  100% {
+    transform: rotateY(360deg) scale(1);
+  }
+}
+
+@mixin icon-animation {
+  animation: rotate-icon 0.5s ease;
+}
+
+// Mixin para link da loja de aplicativos
+@keyframes shine-loja-apps {
+  from {
+    mask-position: 150%;
+  }
+
+  to {
+    mask-position: -50%;
+  }
+}
+
+@mixin loja-apps-animation {
+  animation: shine-loja-apps 1.75s infinite;
+  mask-image: linear-gradient(-75deg, $branco 30%, $cinza-claro 50%, $branco 70%);
+  mask-size: 200%;
+}
+
+// Mixin para animar os icones dos app no hover {
+@keyframes rotate-app {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@mixin animate-icon-app {
+  animation: rotate-app 0.3s linear;
+}
+
+// Mixin para animar os icones dos app no hover {
+@keyframes rotate-app-inverse {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(-90deg);
+  }
+
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@mixin animate-icon-app-inverse {
+  animation: rotate-app-inverse 0.3s linear;
+}
+
+// Conversor px para rem.
+@mixin font-size-px-to-rem($valor-pixels) {
+  font-size: calc($valor-pixels / $font-size-default) + rem;
+}
+
+// Mixin para cores do modulos
+@mixin module-colors {
+  @each $name, $background in $array-modulo-colors {
+    &.#{$name} {
+      background-color: $background;
+    }
+  }
+}
+
+@mixin module-fonts {
+  &.modulo-cosmos-blue,
+  &.modulo-azul-horizonte,
+  &.modulo-rosa-escuro,
+  &.modulo-roxo-escuro,
+  &.modulo-verde-escuro,
+  &.modulo-imagem-cheia {
+    p,
+    span {
+      color: $branco;
+    }
+
+    app-social-interation-bar {
+      span {
+        &[class^='icon-'],
+        &[class*=' icon-'] {
+          color: $branco;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.modulo-branco,
+  &.modulo-amarelo,
+  &.modulo-azul-glacier,
+  &.modulo-rosa-claro,
+  &.modulo-roxo-claro,
+  &.modulo-verde-claro,
+  &.insert-image {
+    p,
+    span {
+      color: $azul-pruciano;
+    }
+
+    app-social-interation-bar {
+      span {
+        &[class^='icon-'],
+        &[class*=' icon-'] {
+          color: $azul-pruciano;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Mixin para spinner de bolinhas
+@mixin spinner-bolinhas($cores, $tamanho, $espacamento) {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: ($tamanho + $espacamento) * (length($cores) - 1) + $tamanho;
+  height: $tamanho;
+
+  > div {
+    @for $bola from 1 through length($cores) {
+      &:nth-of-type(#{$bola}) {
+        @include bolinha-animada($bola - 1, $tamanho, $espacamento, nth($cores, $bola), -1s + (0.2s * $bola));
+      }
+    }
+  }
+}
+
+// Mixin para bolinha animada do spinner
+@mixin bolinha-animada($position, $tamanho, $margem, $background, $delay) {
+  position: absolute;
+  left: ($tamanho + $margem) * $position;
+  width: $tamanho;
+  height: $tamanho;
+  border-radius: 50%;
+  background: $background;
+  transform: scale(0.75);
+  animation: animacao-bolinha 1s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+  animation-delay: $delay;
+}
+
+// Mixin para animação da bolinha
+@keyframes animacao-bolinha {
+  0% {
+    transform: scale(0.75);
+  }
+
+  25% {
+    transform: scale(0.75);
+  }
+
+  50% {
+    transform: scale(0.75);
+  }
+
+  75% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.75);
+  }
+}

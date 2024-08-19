@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand navbar-light" >
+    <div class="container">
+      <div class="row d-flex">
+        <div class="col-3 logo-bb" id="logoBb">
+          <div class="logo-bb-box d-flex align-items-center">
+            <div class="logo-col align-items-center cursor-pointer" >
+              <span id="logoIntranet" class="icon-logo-bb logo-intranet"></span>
+              <span id="descIntranet" class="d-none d-sm-flex logo">New Engine Search</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 d-flex" id="pesquisa">
+          <div class="pesquisa">
+            
+            <form #searchForm="ngForm" (ngSubmit)="onSubmit()">
+              <input
+                matInput
+                name="pesquisa"
+                id="inputPesquisa"
+                [matAutocomplete]="auto"
+                (click)="abrirHistorico()"
+                [formControl]="pesquisaControl"
+                placeholder="O que você procura?"
+                class="form-control input-stl input-pesquisa"
+              />
+              <span (click)="selecionarHistorico()" class="icon-lupa cursor-pointer"></span>
+              <mat-autocomplete #auto="matAutocomplete" class="searchAutoComplete">
+                <mat-option
+                  (click)="selecionarHistorico(item)"
+                  *ngFor="let item of historicoPesquisa"
+                  [value]="item"
+                  class="font-texto-book historico-item"
+                  ><em class="icon-clock"></em>
+                  <p class="historico-item-text font-texto-book">
+                    {{ item }}
+                  </p>
+                </mat-option>
+              </mat-autocomplete>
+            </form>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>

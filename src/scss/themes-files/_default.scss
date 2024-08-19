@@ -1,0 +1,15 @@
+@import 'themes-variables';
+// Tema de cores default
+$azul-endeavour: #0061a0;
+$cosmos-blue: #002d4b;
+$amarelo-drover: #fcf3a8;
+$amarelo-transparency: rgba(252, 243, 168, 0.6);
+
+// Mapeamento das cores
+$theme-map-default: (
+  $theme-color-1: $azul-endeavour,
+  $theme-color-2: $cosmos-blue,
+  $theme-color-3: $amarelo-drover,
+  $theme-color-4: $cosmos-blue,
+  $theme-color-5: $amarelo-transparency,
+);

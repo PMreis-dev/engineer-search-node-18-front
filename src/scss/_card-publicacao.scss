@@ -1,0 +1,31 @@
+@import 'variables';
+
+app-meu-trabalho {
+  .mat-card {
+    h1,
+    p,
+    span,
+    a {
+      color: $cosmos-blue;
+    }
+
+    &.card-sem-imagem {
+      background-color: $verde-glacier;
+    }
+  }
+}
+
+app-meus-interesses {
+  .mat-card {
+    h1,
+    p,
+    span,
+    a {
+      color: $cosmos-blue;
+    }
+
+    &.card-sem-imagem {
+      background-color: $roxo-logan;
+    }
+  }
+}

@@ -1,0 +1,331 @@
+@import 'variables';
+@import 'mixins';
+
+:root {
+  --proporcao-wide: 9 / 16 * 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $preto !important;
+
+  header {
+    background-color: transparent;
+  }
+
+  .modal-backdrop {
+    top: 64px;
+    border: solid 1px $cinza-escuro;
+    background-color: $cinza-muito-claro-sombreado;
+    backdrop-filter: blur(3px);
+
+    &.fade {
+      &.show {
+        background-color: $bkg-color;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .cdk-overlay-backdrop {
+    &.cdk-overlay-backdrop-showing {
+      &.backdrop-background {
+        @include bkg-blur($bkg-color-default);
+        @include opacity-default();
+      }
+    }
+  }
+
+  .scroll-hiden {
+    overflow-y: hidden;
+  }
+
+  app-login {
+    > .container {
+      max-width: 1140px;
+    }
+  }
+
+  .modal-open {
+    #template-artemis {
+      .row {
+        > .col {
+          > .alert {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .cdk-overlay-container {
+    z-index: 1055;
+  }
+
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
+
+  .cursor-default {
+    cursor: default;
+  }
+
+  /* sobrescrita breadcrumb */
+  .breadcrumb {
+    padding: 0.75rem 0 !important;
+  }
+
+  .breadcrumb-item {
+    &.active {
+      color: $azul;
+    }
+  }
+
+  .h100 {
+    height: 100%;
+  }
+
+  .text-lowercase {
+    text-transform: lowercase;
+  }
+
+  .input-icon-custom {
+    border-right: 0 !important;
+  }
+
+  .diff {
+    &-add,
+    &-add * {
+      background-color: $verde-claro;
+      color: $preto;
+    }
+
+    &-rm,
+    &-rm * {
+      background-color: $rosa-claro;
+      color: $rosa-escuro;
+      text-decoration: line-through;
+    }
+  }
+
+  .content-notice {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: left;
+    overflow-wrap: anywhere;
+
+    img,
+    video {
+      object-fit: contain;
+      max-width: 100%;
+      height: initial !important;
+    }
+  }
+
+  app-publicador-noticia,
+  app-detalhar-artigo {
+    .content-notice {
+      p {
+        clear: both;
+
+        img {
+          object-fit: contain;
+          width: initial;
+          max-width: 100%;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+      }
+    }
+  }
+
+  app-pre-visualizar {
+    .content-notice {
+      overflow: hidden;
+
+      &.content-artigo {
+        div[class^='level-'] {
+          span {
+            &.block-management {
+              display: none;
+            }
+          }
+        }
+
+        figure {
+          &.align-center {
+            display: table;
+            margin-right: auto;
+            margin-left: auto;
+          }
+
+          &.align-right {
+            float: right;
+          }
+        }
+      }
+
+      img {
+        // TOFIX - limitar resolução do upload de imagem do tine
+        max-height: 75vh;
+      }
+    }
+  }
+
+  .text-content {
+    &.main-card {
+      .side-bar-pai {
+        p {
+          &.text-content {
+            h2:not(.title-content),
+            h1,
+            h3,
+            h4,
+            h5,
+            h6 {
+              margin: 0.5rem 0 !important;
+              color: $preto;
+              font-weight: 400;
+              font-size: 1rem;
+              font-family: BancoDoBrasilTitulos, monospace;
+              line-height: 1.5rem;
+              letter-spacing: 0.25px;
+              text-align: left;
+            }
+          }
+        }
+
+        .texto-tipo-guia {
+          height: 20px;
+          font-size: 12px;
+        }
+
+        .data-hora-alteracao,
+        .versao {
+          font-size: 12px;
+        }
+      }
+
+      img {
+        @include altura-igual-largura(auto);
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .tabela-placeholder {
+        @include flex-box;
+        flex-direction: column;
+        width: 100%;
+        max-height: 150px;
+        padding-top: 16px;
+
+        span {
+          &::before {
+            @include font-size-px-to-rem(40);
+            margin-right: 10px;
+            color: $cinza-claro;
+          }
+        }
+
+        p {
+          margin: 0;
+          color: $cinza-claro;
+          text-align: center;
+
+          a {
+            color: $azul-claro;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .text-content {
+        p {
+          margin: 0;
+        }
+
+        &.ng-star-inserted {
+          p {
+            word-wrap: anywhere;
+          }
+        }
+      }
+
+      .mat-card-header-text {
+        margin-left: 0;
+      }
+    }
+  }
+
+  app-detalhar-documento-corporativo {
+    .publicacao-principal {
+      app-gatilho-editar {
+        line-height: 16px;
+
+        button {
+          width: 20px;
+          margin-left: 16px;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  app-crop-image {
+    .system-loading {
+      &.only-crop {
+        position: absolute;
+      }
+    }
+  }
+
+  app-modulo-noticia-dialog {
+    .upload-file {
+      padding: 12px;
+      border-radius: 8px;
+      background-color: $branco;
+    }
+  }
+
+  app-detalhar-noticia,
+  app-detalhar-documento-corporativo {
+    .social-interation-noticia {
+      .div-social-interation {
+        span {
+          color: $azul;
+
+          &:nth-child(3) {
+            margin-top: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  app-modulo-noticia {
+    .social-interation-noticia {
+      .div-social-interation {
+        span {
+          &:nth-child(3) {
+            margin-top: 7px;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+  }
+}

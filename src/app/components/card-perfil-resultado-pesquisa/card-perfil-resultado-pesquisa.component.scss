@@ -1,0 +1,105 @@
+@import 'variables';
+@import 'mixins';
+
+@media screen and (min-width: 1702px) {
+  .card-perfil {
+    width: 200px;
+    margin: 1px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .card-perfil {
+    width: 13vw;
+    margin: 1px;
+  }
+}
+
+@media screen and (min-width: 1367px) {
+  .card-perfil {
+    height: 200px;
+    margin: 9px;
+  }
+}
+
+.card-perfil {
+  min-width: 179px;
+  min-height: 241px;
+  border: 1px solid $mercurio;
+  border-radius: 4px;
+  background-color: $cinza-opacity;
+  box-shadow: none;
+
+  .imagem-card {
+    display: flex;
+    min-height: 45%;
+    margin-top: 13px;
+    margin-bottom: 15px;
+  }
+}
+
+.center-content {
+  margin: auto;
+  text-align: center;
+
+  span {
+    display: block;
+    font-weight: 600;
+    line-height: 20px;
+    overflow-wrap: break-word;
+
+    &:hover {
+      .copiar {
+        @include flex-box;
+      }
+    }
+
+    .copiar {
+      @include altura-igual-largura(32px);
+      @include font-size-px-to-rem(15);
+      position: absolute;
+      right: 12px;
+      bottom: -20px;
+      z-index: 1;
+      display: none;
+      border: 1px solid $cinza-calice;
+      border-radius: 0 24px 24px;
+      background-color: $branco;
+      color: $azul-endeavour;
+      box-shadow: 0 4px 4px $cinza-super-claro;
+      transition: all 0.3s ease-in;
+    }
+
+    .telefone-usuario {
+      bottom: -20px;
+    }
+
+    .telefone-unidade {
+      bottom: 0;
+    }
+  }
+}
+
+.icone-usuario {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.icone-unidade {
+  @include font-size-px-to-rem(36);
+  display: block;
+  color: $azul-endeavour;
+}
+
+.texto-card {
+  position: relative;
+  
+  button.copiar {
+    top: 15px;
+    left: 110px;
+  }
+
+}

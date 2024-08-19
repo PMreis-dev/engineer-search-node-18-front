@@ -1,0 +1,216 @@
+@import 'mixins';
+@import 'variables';
+
+// Includes para fontes usadas
+@include declare-font-face('BancoDoBrasilTitulos', 'BancoDoBrasilTitulos-Regular');
+@include declare-font-face('BancoDoBrasilTitulos-medium', 'BancoDoBrasilTitulos-Medium');
+@include declare-font-face('BancoDoBrasilTitulos-bold', 'BancoDoBrasilTitulos-XBold');
+@include declare-font-face('BancoDoBrasilTitulos-book', 'BancoDoBrasilTitulos-Bold');
+@include declare-font-face('BancoDoBrasilTitulos-italic', 'BancoDoBrasilTitulos-Italic');
+@include declare-font-face('BancoDoBrasilTitulos-book-italic', 'BancoDoBrasilTitulos-BoldIt');
+@include declare-font-face('BancoDoBrasilTextos', 'BancoDoBrasilTextos-Regular');
+@include declare-font-face('BancoDoBrasilTextos-medium', 'BancoDoBrasilTextos-Medium');
+@include declare-font-face('BancoDoBrasilTextos-bold', 'BancoDoBrasilTextos-XBold');
+@include declare-font-face('BancoDoBrasilTextos-book', 'BancoDoBrasilTextos-Bold');
+@include declare-font-face('BancoDoBrasilTextos-italic', 'BancoDoBrasilTextos-Italic');
+@include declare-font-face('BancoDoBrasilTextos-book-italic', 'BancoDoBrasilTextos-BoldIt');
+@include declare-font-face('BancoDoBrasilTextos-light', 'BancoDoBrasilTextos-Light');
+@include declare-font-face('BancoDoBrasilTextos-LightIt', 'BancoDoBrasilTextos-LightIt');
+@include declare-font-face('BancoDoBrasilTextos-MediumIt', 'BancoDoBrasilTextos-MediumIt');
+@include declare-font-face('BancoDoBrasilTextos-XBoldIt', 'BancoDoBrasilTextos-XBoldIt');
+@include declare-font-face('BancoDoBrasilTitulos-Light', 'BancoDoBrasilTitulos-Light');
+@include declare-font-face('BancoDoBrasilTitulos-LightIt', 'BancoDoBrasilTitulos-LightIt');
+@include declare-font-face('BancoDoBrasilTitulos-MediumIt', 'BancoDoBrasilTitulos-MediumIt');
+@include declare-font-face('BancoDoBrasilTitulos-XBoldIt', 'BancoDoBrasilTitulos-XBoldIt');
+
+body {
+  font-family: BancoDoBrasilTextos, 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI', 'Apple Color Emoji', 'Twemoji Mozilla',
+    'Noto Color Emoji', 'EmojiOne Color', 'Android Emoji', monospace !important;
+
+  app-modulo-noticia,
+  app-modulo-noticia-dialog {
+    .modulo-noticia {
+      @include module-fonts;
+
+      .social-interation-noticia {
+        span {
+          &:nth-child(3) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.font-texto {
+  font-family: BancoDoBrasilTextos, monospace !important;
+}
+
+.font-texto-book {
+  font-family: BancoDoBrasilTextos-book, monospace !important;
+}
+
+.font-texto-light {
+  font-family: BancoDoBrasilTextos-light, monospace !important;
+}
+
+.font-texto-medium {
+  font-family: BancoDoBrasilTextos-medium, monospace !important;
+}
+
+.font-texto-book-italic {
+  font-family: BancoDoBrasilTextos-book-italic, monospace !important;
+}
+
+.font-texto-bold {
+  font-family: BancoDoBrasilTextos-bold, monospace !important;
+}
+
+.font-texto-italic {
+  font-family: BancoDoBrasilTextos-italic, monospace !important;
+}
+
+.font-titulos {
+  font-family: BancoDoBrasilTitulos, monospace !important;
+}
+
+.font-titulos-book {
+  font-family: BancoDoBrasilTitulos-book, monospace !important;
+}
+
+.font-titulos-medium {
+  font-family: BancoDoBrasilTitulos-medium, monospace !important;
+}
+
+.font-titulos-light {
+  font-family: BancoDoBrasilTitulos-Light, monospace !important;
+}
+
+.font-titulos-book-italic {
+  font-family: BancoDoBrasilTitulos-book-italic, monospace !important;
+}
+
+.font-titulos-bold {
+  font-family: BancoDoBrasilTitulos-bold, monospace !important;
+}
+
+.font-titulos-italic {
+  font-family: BancoDoBrasilTitulos-italic, monospace !important;
+}
+
+.font-white-regular {
+  color: $branco !important;
+}
+
+.font-blue-light {
+  color: $azul-claro !important;
+}
+
+.font-blue-regular {
+  color: $azul !important;
+}
+
+.font-yellow-regular {
+  color: $amarelo !important;
+}
+
+.font-blue-dark {
+  color: $azul-pruciano !important;
+}
+
+.font-grey-light {
+  color: $cinza-claro !important;
+}
+
+.font-grey-superlight {
+  color: $cinza-super-claro !important;
+}
+
+.font-grey-inativo {
+  color: $cinza-inativo !important;
+}
+
+.font-grey-regular {
+  color: $preto !important;
+}
+
+.font-grey-dark {
+  color: $cinza-escuro-2 !important;
+}
+
+.font-green-success {
+  color: $verde;
+}
+
+.font-red-failure {
+  color: $vermelho;
+}
+
+.font-azul-endeavour {
+  color: $azul-endeavour;
+}
+
+.font-cinza-mid {
+  color: $cinza-mid;
+}
+
+h1 {
+  @include font-size-px-to-rem(22.4);
+  color: $color-titulos;
+  font-family: BancoDoBrasilTitulos, monospace;
+}
+
+h2 {
+  @include font-size-px-to-rem(19.2);
+  color: $color-titulos;
+  font-family: BancoDoBrasilTitulos, monospace;
+}
+
+h3 {
+  @include font-size-px-to-rem(16);
+  color: $color-titulos;
+  font-family: BancoDoBrasilTitulos, monospace;
+}
+
+h4 {
+  @include font-size-px-to-rem(12.8);
+  color: $azul;
+  font-family: BancoDoBrasilTitulos, monospace;
+}
+
+h5 {
+  @include font-size-px-to-rem(9.6);
+  color: $color-titulos;
+  font-family: BancoDoBrasilTitulos, monospace;
+}
+
+h6 {
+  @include font-size-px-to-rem(6.4);
+  color: $color-titulos;
+  font-family: BancoDoBrasilTitulos, monospace;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+.font-size-22 {
+  font-size: 22px;
+}
+
+.nao-encontrado {
+  font-family: BancoDoBrasilTitulos-book, monospace;
+}

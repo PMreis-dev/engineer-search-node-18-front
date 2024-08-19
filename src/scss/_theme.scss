@@ -1,0 +1,38 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  .body-artemis {
+    &.default {
+      @include montar-mapa($theme-map-default);
+
+      app-header {
+        .sub-nav {
+          background-color: $branco;
+        }
+      }
+
+      app-feed-publicacao-secundario {
+        section {
+          header {
+            .titulo {
+              h1 {
+                &.texto-titulo {
+                  color: $branco;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.tema-rosa {
+      @include montar-mapa($theme-map-pink);
+    }
+
+    &.tema-azul {
+      @include montar-mapa($theme-map-blue);
+    }
+  }
+}

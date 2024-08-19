@@ -1,0 +1,271 @@
+<app-template>
+  <div class="pagina-buscador">
+    <div class="buscador-head">
+      <div>
+        <p class="font-titulos titulo">Busca Intranet Corporativa</p>
+        <div class="search-tab">
+          <ul class="nav container-search-bar">
+            <li id="abaIntranet" class="nav-item col" *ngIf="true"
+              (click)="carregarAba('intranet')">
+              <a id="abaLinkIntranet" class="nav-link" data-toggle="tab" href="#intranet"
+                [ngClass]="{ active: abaPerfilAtual === 'intranet' }">
+                Todos
+              </a>
+            </li>
+            <li id="abaDocumentos" class="nav-item col-3" *ngIf="true"
+              (click)="carregarAba('documentos')">
+              <a id="abaLinkDocumentos" class="nav-link" data-toggle="tab" href="#documentos"
+                [ngClass]="{ active: abaPerfilAtual === 'documentos' }">
+                Documentos Corporativos
+              </a>
+            </li>
+            <li id="abaNoticias" class="nav-item col-3" *ngIf="true"
+              (click)="carregarAba('noticias')">
+              <a id="abaLinkNoticias" class="nav-link" data-toggle="tab" href="#noticias"
+                [ngClass]="{ active: abaPerfilAtual === 'noticias' }">
+                Notícias e Mídias
+              </a>
+            </li>
+            <li id="abaPerfilUsuario" class="nav-item col-3" *ngIf="true"
+              (click)="carregarAba('perfis')">
+              <a id="abaLinkPerfilUsuario" class="nav-link" data-toggle="tab" href="#perfis"
+                [ngClass]="{ active: abaPerfilAtual === 'perfis' }">{{ tituloPessoasUnidades }}
+              </a>
+            </li>
+            <li id="abaAplicativos" class="nav-item col" (click)="carregarAba('aplicativos')"
+              *ngIf="true">
+              <a id="abaLinkAplicativos" class="nav-link" data-toggle="tab" href="#aplicativos"
+                [ngClass]="{ active: abaPerfilAtual === 'aplicativos' }">
+                Aplicativos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <app-filtro-avancado
+        *ngIf="dataFiltroAvancado"
+        [dataFiltroAvancado]="dataFiltroAvancado"
+        [termo]="filtro.termo"
+        [abaPerfilAtual]="abaPerfilAtual"
+        [mostraFiltroTipoDocumento]="true"
+        [mostraFiltroTipoNoticia]="true"
+        [mostraFiltroVigencia]="true"
+        [isUsuarioSac]="false"
+        (buscarFiltroAvancado)="buscarFiltroAvancado($event)"
+      >
+      </app-filtro-avancado>
+    </div>
+    <div class="row">
+      <div class="tab-content" [ngClass]="{
+          'col-md-12': abaPerfilAtual === 'perfis' || abaPerfilAtual === 'aplicativos',
+          'col-md-8': abaPerfilAtual !== 'perfis'
+        }">
+        <div class="tab-pane container-fluid" id="intranet" [ngClass]="{ active: abaPerfilAtual === 'intranet' }">
+          <div class="publicacao no-content font-texto" *ngIf="resultadosData.total">
+            <p *ngIf="!buscaHastag && !filtro.textoSubAssunto && filtro.termo">
+              {{ resultadosData.total }} resultados para o termo
+              “<strong>{{ filtro.termo }}</strong>”
+            </p>
+            <p *ngIf="buscaHastag">
+              {{ resultadosData.total }} resultados para a hashtag
+              “<strong>#{{ filtro.termo }}</strong>”
+            </p>
+            <p *ngIf="!filtro.termo && filtro.textoAssunto && !filtro.textoSubAssunto && !buscaHastag">
+              {{ resultadosData.total }} resultados para assunto
+              “<strong>{{ filtro.textoAssunto }}</strong>”
+            </p>
+            <p *ngIf="filtro.textoSubAssunto">
+              {{ resultadosData.total }} resultados para subassunto
+              “<strong>{{ filtro.textoSubAssunto }}</strong>”
+            </p>
+            <div class="conteudo">
+              <app-card-conteudo-publicacao-feed
+              [publicacao]="publicacao"
+              [termo]="filtro.termo"
+              *ngFor="let publicacao of resultadosData.publicacoes.lista"
+            ></app-card-conteudo-publicacao-feed>
+            </div>
+          </div>
+
+          <div class="no-content" *ngIf="!carregando && !resultadosData.total">
+            <p>Desculpe! Não encontramos resultados para essa busca. Que tal refazer sua consulta?</p>
+          </div>
+
+          <div *ngIf="carregando">
+            <p class="text-center">Carregando...</p>
+          </div>
+          <div class="row-paginador">
+            <app-paginador
+              *ngIf="resultadosData.publicacoes.total"
+              [quantidadeItem]="resultadosData.publicacoes.total"
+              [itensPorPagina]="PUBLICACOES_POR_PAGINA"
+              (paginaMudou)="paginarBusca($event)"
+              [currentPage]="pagina"
+            ></app-paginador>
+          </div>
+        </div>
+        <div class="tab-pane container-fluid" id="perfis" [ngClass]="{ active: abaPerfilAtual === 'perfis' }">
+          <div class="tab-pane fade show active" id="nav-funcionarios" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="no-content font-texto-book" *ngIf="resultadosData.perfis.total">
+              <p *ngIf="!buscaHastag">Aproximadamente {{ resultadosData.perfis.total }} resultados para
+                “{{ filtro.termo }}”</p>
+              <p *ngIf="buscaHastag">Aproximadamente {{ resultadosData.perfis.total }} resultados para a hashtag
+                “#{{ filtro.termo }}”</p>
+            </div>
+            <div class="no-content" *ngIf="!resultadosData.perfis.total && !carregando">
+              <p>Desculpe! Não encontramos resultados para essa busca. Que tal refazer sua consulta?</p>
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-6 col-md-7 col-lg-7 col-xl-8 border-divisao"
+                [ngClass]="{ 'col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ': !resultadosData.perfis.unidades.length }"
+                *ngIf="resultadosData.perfis.usuarios.length">
+                <span class="font-titulos">Pessoas</span>
+                <div class="lista-perfis row">
+                  <app-card-perfil-resultado-pesquisa
+                    *ngFor="let perfil of resultadosData.perfis.usuarios"
+                    [perfil]="perfil"
+                    class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 card-lista-resultados"
+                  >
+                  </app-card-perfil-resultado-pesquisa>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-4"
+                [ngClass]="{ 'col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12': !resultadosData.perfis.usuarios.length }"
+                *ngIf="resultadosData.perfis.unidades.length">
+                <span class="font-titulos">Unidades</span>
+                <div class="lista-perfis row">
+                  <app-card-perfil-resultado-pesquisa
+                    *ngFor="let perfil of resultadosData.perfis.unidades"
+                    [perfil]="perfil"
+                    class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 card-lista-resultados"
+                  >
+                  </app-card-perfil-resultado-pesquisa>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="row-paginador">
+                app-paginador
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane container-fluid" id="noticias" [ngClass]="{ active: abaPerfilAtual === 'noticias' }">
+          <div class="publicacao no-content font-texto-book"
+            *ngIf="resultadosData.publicacoes && resultadosData.publicacoes.total && true">
+            <p *ngIf="!buscaHastag && !filtro.textoSubAssunto && !filtro.textoAssunto">
+              Aproximadamente {{ resultadosData.publicacoes.total }} resultados para “{{ filtro.termo }}”
+            </p>
+            <p *ngIf="buscaHastag">
+              {{ resultadosData.publicacoes.total }} resultados para a hashtag “<strong>#{{ filtro.termo  }}</strong>”
+            </p>
+            <p *ngIf="filtro.textoAssunto && !filtro.textoSubAssunto && !buscaHastag">
+              Aproximadamente {{ resultadosData.publicacoes.total }} resultados para assunto “{{ filtro.textoAssunto }}”
+            </p>
+            <p *ngIf="filtro.textoSubAssunto">
+              Aproximadamente {{ resultadosData.publicacoes.total }} resultados para subassunto “{{
+              filtro.textoSubAssunto }}”
+            </p>
+            <app-card-conteudo-publicacao-feed
+              [publicacao]="publicacao"
+              [termo]="filtro.termo"
+              *ngFor="let publicacao of resultadosData.publicacoes.lista"
+            ></app-card-conteudo-publicacao-feed>
+          </div>
+          <div class="no-content" *ngIf="!resultadosData.publicacoes.total && !carregando">
+            <p>Desculpe! Não encontramos resultados para essa busca. Que tal refazer sua consulta?</p>
+          </div>
+          <div *ngIf="carregando">
+            <p class="text-center">Carregando...</p>
+          </div>
+          <div class="row-paginador">
+            app-paginador
+          </div>
+        </div>
+
+        <div class="tab-pane container-fluid" id="aplicativos" [ngClass]="{ active: abaPerfilAtual === 'aplicativos' }"
+          *ngIf="abaPerfilAtual === 'aplicativos'">
+          <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="no-content font-texto-book" *ngIf="aplicativos?.total">
+              <p *ngIf="!buscaHastag">Aproximadamente {{ aplicativos?.total }} resultados para “{{ filtro.termo }}”</p>
+            </div>
+            <div *ngIf="carregando">
+              <p class="text-center">Carregando...</p>
+            </div>
+            <div class="no-content" *ngIf="!aplicativos?.total && !carregando">
+              <p>Desculpe! Não encontramos resultados para essa busca. Que tal refazer sua consulta?</p>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" *ngIf="aplicativos.lista.length">
+                <div class="lista-aplicativos row">
+                  app-card-aplicativo
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="row-paginador">
+                app-paginador
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane container-fluid" id="documentos" [ngClass]="{ active: abaPerfilAtual === 'documentos' }">
+          <div class="lista-documentos publicacao"
+            *ngIf="resultadosData.publicacoes && resultadosData.publicacoes.total && true">
+            <div class="lista-documentos publicacao no-content font-texto-book"
+              *ngIf="resultadosData.publicacoes && resultadosData.publicacoes.total && true">
+              <p *ngIf="!buscaHastag && !filtro.textoSubAssunto && !filtro.textoAssunto">
+                Aproximadamente {{ resultadosData.publicacoes.total }} resultados para “{{ filtro.termo }}”
+              </p>
+              <p *ngIf="buscaHastag">
+                {{ resultadosData.publicacoes.total }} resultados para a hashtag
+                “<strong>#{{ filtro.termo }}</strong>”
+              </p>
+              <p *ngIf="filtro.textoAssunto && !filtro.textoSubAssunto && !buscaHastag">
+                Aproximadamente {{ resultadosData.publicacoes.total }} resultados para assunto
+                “{{ filtro.textoAssunto }}”
+              </p>
+              <p *ngIf="filtro.textoSubAssunto">
+                Aproximadamente {{ resultadosData.publicacoes.total }} resultados para subassunto
+                “{{ filtro.textoSubAssunto }}”
+              </p>
+              {{resultadosData.publicacoes.lista}}
+              <app-card-conteudo-publicacao-feed
+                [publicacao]="documento"
+                [termo]="filtro.termo"
+                *ngFor="let documento of resultadosData.publicacoes.lista"
+              ></app-card-conteudo-publicacao-feed>
+            </div>
+          </div>
+          <div class="no-content" *ngIf="!resultadosData.publicacoes.total && !carregando">
+            <p>Desculpe! Não encontramos resultados para essa busca. Que tal refazer sua consulta?</p>
+          </div>
+          <div class="row-paginador">
+            app-paginador
+          </div>
+        </div>
+      </div>
+      <div class="area-perfis col-sm-4" [ngClass]="{
+          'col-4 .d-md-none .d-lg-block': verificarUnidadeOuAssunto() || resultadosData.perfis.lista.length > 1,
+          'col-3': resultadosData.perfis.lista.length === 1
+        }">
+        <div class="col buscador-sidebar" *ngIf="verificarAssunto && abaPerfilAtual === 'intranet'">
+          <div>
+            app-buscador-bloco-assunto
+          </div>
+          <div *ngIf="verificarTipoPerfil()">
+            app-buscador-perfil-unidade
+          </div>
+        </div>
+
+        app-caixa-resultados-perfis
+        app-caixa-resultados-aplicativos
+      </div>
+    </div>
+  </div>
+</app-template>

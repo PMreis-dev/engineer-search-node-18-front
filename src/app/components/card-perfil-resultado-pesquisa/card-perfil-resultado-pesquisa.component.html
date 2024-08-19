@@ -1,0 +1,67 @@
+
+<mat-card class="card-perfil">
+  <div class="imagem-card">
+    <div
+      class="icone-usuario"
+      *ngIf="perfil.isUsuario"
+      tipoImgPerfil="avatarUsuario"
+      (onAvatarLoad)="carregouImagem(true)"
+      [ngClass]="{ 'skeleton-default': !imagemCarregada }"
+      style="background-image: url(perfil.usuario.imagem);"
+    ></div>
+
+    <p class="icon-office icone-unidade center-content" *ngIf="!perfil.isUsuario"></p>
+  </div>
+
+  <div class="font-texto font-size-14 center-content" *ngIf="perfil.isUsuario">
+    <span
+      (click)="abrirUsuario()"
+      [ngClass]="{ 'skeleton-default': !textoCarregado }"
+      class="font-azul-endeavour texto-card cursor-pointer hover-click"
+    >
+      {{ perfil.usuario.nome }}
+    </span>
+
+    <span [ngClass]="{ 'skeleton-default': !textoCarregado }" class="font-grey-dark texto-card">
+      {{ perfil.usuario.nomeCargo }}
+    </span>
+
+    <span
+      (click)="abrirUnidade()"
+      [ngClass]="{ 'skeleton-default': !textoCarregado }"
+      class="font-azul-endeavour texto-card cursor-pointer"
+    >
+      {{ perfil.usuario.siglaUnidade }}
+    </span>
+
+    <span *ngIf="perfil.usuario.telefone" class="font-grey-dark texto-card"  [ngClass]="{ 'skeleton-default': !textoCarregado }">
+      {{perfil.usuario.telefone}}
+      <button
+        aria-label="Copiar"
+        title="Copiar"
+        class="icon-file-copy copiar telefone-usuario"
+        (click)="copiandoDado(perfil.usuario.telefone, $event)"
+      ></button>
+    </span>
+  </div>
+
+  <div class="font-texto font-size-14 center-content" *ngIf="!perfil.isUsuario && !!perfil.unidade">
+    <span (click)="abrirUnidade()" class="font-azul-endeavour cursor-pointer" [ngClass]="{ 'skeleton-default': !textoCarregado } ">
+      {{ perfil.unidade.nome }}
+    </span>
+
+    <span [ngClass]="{ 'skeleton-default': !textoCarregado }" class="font-grey-dark">
+      {{ perfil.unidade.tipo }}
+    </span>
+
+    <span [ngClass]="{ 'skeleton-default': !textoCarregado }" class="font-grey-dark texto-card" *ngIf="perfil.unidade.telefone" >
+      {{perfil.unidade.telefone}}
+      <button
+        aria-label="Copiar"
+        title="Copiar"
+        class="icon-file-copy copiar telefone-unidade"
+        (click)="copiandoDado(perfil.unidade.telefone, $event)"
+      ></button>
+    </span>
+  </div>
+</mat-card>

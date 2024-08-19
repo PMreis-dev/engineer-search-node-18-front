@@ -1,0 +1,522 @@
+@import 'variables';
+@import 'mixins';
+
+.form-publicador {
+  padding-top: 32px;
+
+  section {
+    padding-bottom: 16px;
+
+    input {
+      &.ng-touched {
+        &.ng-invalid:not(form) {
+          border: 0;
+        }
+      }
+    }
+
+    select {
+      &.ng-touched {
+        &.ng-invalid:not(form) {
+          border: 0;
+        }
+      }
+    }
+
+    .mat-form-field {
+      .mat-error {
+        @include font-size-px-to-rem(12);
+      }
+    }
+
+    .mat-select {
+      &.mat-select-disabled {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .top-form {
+    @include align-center;
+    @include font-size-px-to-rem(14);
+    position: relative;
+    padding-bottom: 8px;
+
+    .tipo-publicacao {
+      margin-right: 16px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background-color: $fizz-dourado;
+      color: $azul-pruciano;
+    }
+
+    .msg-auto-save {
+      @include font-size-px-to-rem(14);
+      width: auto;
+      color: $azul;
+    }
+
+    .assunto-subassunto,
+    .tipo-documento,
+    .tipo-noticia {
+      @include borda-pontilhada-curva;
+      width: auto;
+      margin-left: 8px;
+      padding: 8px;
+      background-color: transparent;
+      transition: all 0.3s ease;
+
+      &.ng-touched {
+        &.ng-invalid {
+          border-color: $vermelho;
+        }
+      }
+
+      &.selecionado {
+        border-style: none;
+        background-color: $cinza-claro-rgba;
+
+        span {
+          color: $cosmos-blue;
+        }
+      }
+
+      &.selected {
+        border-style: solid;
+        background-color: $cinza-calice;
+      }
+
+      &.mat-form-field-appearance-legacy {
+        .mat-form-field-wrapper {
+          padding-bottom: 0;
+        }
+      }
+
+      .mat-form-field-infix {
+        width: auto;
+
+        .mat-select-value {
+          width: auto;
+          max-width: 50%;
+        }
+      }
+
+      .mat-select-arrow-wrapper {
+        display: none;
+      }
+    }
+
+    .etiqueta-edicao {
+      @include font-size-px-to-rem(12);
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 4px 8px 8px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      background-color: $cinza-calice;
+      color: $cinza-mid;
+    }
+  }
+
+  .card {
+    border: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 1px 2px 1px $cinza-calice;
+
+    .topo-conteudo {
+      @include space-between;
+      min-width: 0;
+      background-color: transparent;
+
+      .campo-header {
+        @include align-center;
+        padding: 8px 8px 8px 16px;
+
+        p {
+          margin-bottom: 0;
+          color: $cinza-mid;
+
+          span {
+            padding-left: 4px;
+          }
+        }
+      }
+
+      .classificacao-seguranca {
+        .mat-form-field {
+          .mat-form-field-wrapper {
+            .mat-select-value {
+              width: auto;
+              text-align: left;
+            }
+          }
+        }
+      }
+
+      .tipo-publicacao {
+        .mat-form-field {
+          .mat-form-field-infix {
+            .mat-select-value {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .classificacao-seguranca,
+      .tipo-publicacao .tipo-publicacao-noticia {
+        .mat-form-field {
+          width: auto;
+
+          .mat-form-field-infix {
+            width: auto;
+
+            .mat-select-value {
+              max-width: 50%;
+            }
+          }
+        }
+      }
+
+      .mat-form-field {
+        width: initial;
+        min-width: 185px;
+
+        &.mat-focused {
+          .mat-select-arrow {
+            color: $azul;
+          }
+        }
+
+        .mat-form-field-wrapper {
+          padding-bottom: 0;
+
+          .mat-select-value {
+            padding-right: 8px;
+            color: $cinza-mid;
+          }
+        }
+      }
+    }
+
+    article {
+      padding: 8px 8px 28px 16px;
+
+      .area-publico-alvo {
+        @include align-center;
+
+        .mat-form-field {
+          &.add-publico-alvo {
+            .mat-form-field-wrapper {
+              padding-bottom: 0;
+            }
+
+            input,
+            label {
+              @include font-size-px-to-rem(14);
+              padding: 8px;
+            }
+
+            input {
+              @include borda-pontilhada-curva;
+            }
+
+            label {
+              padding-top: 12px;
+            }
+
+            .mat-form-field-underline {
+              display: none;
+              width: 359px;
+            }
+          }
+        }
+
+        .all-tags {
+          padding-bottom: 4px;
+          padding-left: 32px;
+        }
+
+        .mat-checkbox {
+          @include font-size-px-to-rem(12);
+          width: 100%;
+          color: $cinza-mid;
+        }
+      }
+
+      .mat-form-field {
+        width: initial;
+        max-width: 100%;
+
+        &.titulo-publicacao {
+          @include font-size-px-to-rem(25);
+          color: $cinza-mid;
+
+          .mat-form-field-label-wrapper {
+            .mat-form-field-label {
+              color: $cinza-mid;
+            }
+          }
+
+          .mat-form-field-underline {
+            bottom: 1.4rem;
+          }
+        }
+
+        &.subtitulo-publicacao {
+          @include font-size-px-to-rem(19);
+          color: $preto;
+
+          .mat-form-field-label-wrapper {
+            .mat-form-field-label {
+              color: $preto;
+            }
+          }
+        }
+
+        &.mat-form-field-should-float {
+          .mat-form-field-infix {
+            .mat-form-field-label-wrapper {
+              .mat-form-field-label {
+                opacity: 0;
+              }
+            }
+          }
+
+          .mat-form-field-underline {
+            display: block;
+          }
+        }
+
+        &.mat-focused {
+          .mat-form-field-ripple {
+            background-color: $azul;
+          }
+        }
+
+        &.ng-touched {
+          &.ng-invalid {
+            border: 0;
+
+            .mat-form-field-underline {
+              display: block;
+            }
+          }
+        }
+
+        .mat-form-field-wrapper {
+          padding-bottom: 1rem;
+        }
+
+        .mat-form-field-flex {
+          align-items: center;
+        }
+
+        .mat-form-field-infix {
+          padding: 8px 0;
+
+          .mat-form-field-label-wrapper {
+            .mat-form-field-label {
+              opacity: 1;
+              transition: all 0.3s ease;
+
+              .mat-placeholder-required {
+                display: none;
+              }
+            }
+          }
+        }
+
+        .mat-form-field-suffix {
+          @include font-size-px-to-rem(19);
+        }
+
+        .mat-form-field-label-wrapper {
+          display: block;
+        }
+
+        .mat-icon {
+          @include font-size-px-to-rem(22);
+          color: $cinza-calice;
+        }
+      }
+
+      .conteudo-publicacao {
+        .msg-auto-save {
+          @include font-size-px-to-rem(14);
+          color: $azul;
+        }
+
+        .form-control {
+          &.cdk-drop-list {
+            min-height: 378px;
+          }
+        }
+      }
+
+      .invalid-feedback {
+        position: absolute;
+        margin-top: 0;
+      }
+    }
+  }
+
+  aside {
+    padding-top: 40px;
+    padding-bottom: 16px;
+
+    .anexos-publicacao {
+      padding-top: 16px;
+
+      .lista-anexos {
+        @include font-size-px-to-rem(14);
+      }
+    }
+
+    header {
+      min-width: 0;
+      padding: 16px 0;
+      border-radius: 4px 4px 0 0;
+      background-color: $azul-pruciano;
+
+      h2 {
+        width: 100%;
+        margin-bottom: 0;
+        color: $fizz-dourado;
+        text-align: center;
+      }
+    }
+
+    .numero-in {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .numero-in,
+    .numero-prd {
+      > div {
+        padding: 8px;
+        padding-bottom: 16px;
+
+        p {
+          color: $cinza-mid;
+          font-size: 0.75rem;
+        }
+
+        .mat-form-field {
+          @include borda-pontilhada-curva;
+          position: relative;
+          width: 100%;
+          padding: 16px 8px;
+
+          .mat-form-field-wrapper {
+            padding-bottom: 0;
+          }
+
+          .mat-form-field-label-wrapper {
+            top: -20px;
+            display: block;
+            padding-top: 40px;
+
+            .mat-form-field-label {
+              padding-left: 32px;
+              color: $cinza-mid;
+              opacity: 1;
+              transition: all 0.3s ease;
+
+              .mat-placeholder-required {
+                display: none;
+              }
+            }
+          }
+
+          &.mat-form-field-should-float {
+            .mat-form-field-infix {
+              .mat-form-field-label-wrapper {
+                .mat-form-field-label {
+                  opacity: 0;
+                }
+              }
+            }
+          }
+
+          input {
+            width: calc(100% - 32px);
+            padding-left: 32px;
+          }
+
+          .add-icon {
+            @include font-size-px-to-rem(24);
+            position: absolute;
+            top: -3px;
+            left: 0;
+            color: $cinza-mid;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
+    .upload-file-info {
+      margin-top: 16px;
+
+      > p {
+        &.font-texto {
+          margin: 0 16px 16px;
+        }
+      }
+    }
+  }
+}
+
+body {
+  .form-group {
+    margin-bottom: 8px;
+
+    &:hover {
+      label {
+        color: $azul !important;
+      }
+    }
+
+    label {
+      margin-top: 0;
+
+      .asterisco-validacao {
+        color: $vermelho !important;
+      }
+    }
+
+    &.select-assunto-app {
+      .mat-form-field {
+        @include borda-pontilhada-curva;
+        width: auto;
+        height: 32px;
+        margin-bottom: 8px;
+        padding: 8px;
+        background-color: transparent;
+
+        .mat-form-field-wrapper {
+          padding-bottom: 0;
+
+          .mat-form-field-infix {
+            width: auto;
+
+            .mat-select-value {
+              width: auto;
+              max-width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.emoji-mart-category-label,
+emoji-search,
+.emoji-mart-category[aria-label='Frequently Used'],
+.emoji-mart-bar {
+  display: none;
+}
